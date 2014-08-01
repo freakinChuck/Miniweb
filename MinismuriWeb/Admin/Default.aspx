@@ -18,6 +18,7 @@
             <li id="gaestebuchLi" runat="server"><a href="/Admin/Gaestebuch/Default.aspx">G&auml;stebuch</a></li>
             <li id="linksLi" runat="server"><a href="/Admin/Links/Default.aspx">Links</a></li>
             <li id="termineLi" runat="server"><a href="/Admin/Aktuelles/Default.aspx">Termine</a></li>
+            <li id="eventanmeldungLi" runat="server"><a href="/Admin/EventAnmeldung/Default.aspx">Event Anmeldungen</a></li>
             <li id="videoLi" runat="server"><a href="/Admin/Video/Default.aspx">Videos</a></li>
         </ul>
     </div>

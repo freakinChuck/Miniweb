@@ -14,6 +14,7 @@ namespace MinismuriWeb
         protected void Application_Start(object sender, EventArgs e)
         {
             MinismuriWeb.Storage.StatisticStorage.MapPath = HttpContext.Current.Server.MapPath;
+            MinismuriWeb.Storage.EventStorage.MapPath = HttpContext.Current.Server.MapPath;
         }
 
         protected void Session_Start(object sender, EventArgs e)

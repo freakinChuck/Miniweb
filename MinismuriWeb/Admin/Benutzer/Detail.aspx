@@ -7,7 +7,7 @@
 
         .displayLabel
         {
-            width:150px;
+            width:200px;
             display:inline-block;
             margin-bottom:10px; 
             vertical-align:top;
@@ -21,7 +21,7 @@
         }
         .displayContainer
         {
-            width:405px;
+            width:455px;
             vertical-align:top;
         }
 
@@ -98,6 +98,11 @@
                 <asp:CheckBox id="terminadminDisplayCheckBox" runat="server" Enabled="false" />
             </span>
 
+            <span class="displayLabel">Eventanmeldungsadmin</span>
+            <span class="displayContent">
+                <asp:CheckBox id="eventDisplayCheckBox" runat="server" Enabled="false" />
+            </span>
+
             <span class="displayLabel">Videoadmin</span>
             <span class="displayContent">
                 <asp:CheckBox id="videoadminDisplayCheckBox" runat="server" Enabled="false" />
@@ -168,6 +173,11 @@
             <span class="displayLabel">Terminadmin</span>
             <span class="displayContent">
                 <asp:CheckBox id="terminadminEditCheckBox" runat="server" />
+            </span>
+
+            <span class="displayLabel">Eventanmeldungsadmin</span>
+            <span class="displayContent">
+                <asp:CheckBox id="eventEditCheckBox" runat="server" />
             </span>
 
             <span class="displayLabel">Videoadmin</span>
@@ -246,6 +256,11 @@
             <span class="displayLabel">Terminadmin</span>
             <span class="displayContent">
                 <asp:CheckBox id="terminadminNewCheckBox" runat="server" />
+            </span>
+
+            <span class="displayLabel">Eventanmeldungsadmin</span>
+            <span class="displayContent">
+                <asp:CheckBox id="eventNewCheckBox" runat="server" />
             </span>
 
             <span class="displayLabel">Videoadmin</span>

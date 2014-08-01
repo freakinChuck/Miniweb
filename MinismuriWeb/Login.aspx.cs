@@ -34,7 +34,7 @@ namespace MinismuriWeb
 
             if (!storage.DataSet.Benutzer.Any())
             {
-                storage.DataSet.Benutzer.AddBenutzerRow(username, hash, "ADMIN", true, true, true, true, true, true, true, true, true, true);
+                storage.DataSet.Benutzer.AddBenutzerRow(username, hash, "ADMIN", true, true, true, true, true, true, true, true, true, true, true);
                 storage.Save();
             }
 

@@ -31,6 +31,7 @@ namespace MinismuriWeb.Admin
             termineLi.Visible = user.Terminadmin;
             videoLi.Visible = user.Videoadministrator;
             seitenadminDiv.Visible = user.Seitenadmin;
+            eventanmeldungLi.Visible = user.Eventadmin;
 
 
             var pageStorage = Storage.GenericPageStorage.LoadStorage();

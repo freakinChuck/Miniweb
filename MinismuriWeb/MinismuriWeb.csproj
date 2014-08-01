@@ -75,6 +75,8 @@
     <Content Include="Admin\Bildergalerie\EditText.aspx" />
     <Content Include="Admin\Blog\Default.aspx" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\EventAnmeldung\Default.aspx" />
+    <Content Include="Admin\EventAnmeldung\Detail.aspx" />
     <Content Include="Admin\Gaestebuch\Default.aspx" />
     <Content Include="Admin\Generic\Default.aspx" />
     <Content Include="Admin\Links\Default.aspx" />
@@ -87,6 +89,7 @@
     <Content Include="Images\Kalender.png" />
     <Content Include="Login.aspx" />
     <Content Include="Pages\Aktuelles\Default.aspx" />
+    <Content Include="Pages\Anmeldung\Default.aspx" />
     <Content Include="Pages\Bildergalerie\Default.aspx" />
     <Content Include="Pages\Bildergalerie\Download.aspx" />
     <Content Include="Pages\Bildergalerie\GalerieDisplayer.ascx" />
@@ -209,6 +212,20 @@
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\EventAnmeldung\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EventAnmeldung\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\EventAnmeldung\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\EventAnmeldung\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Gaestebuch\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,6 +280,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Aktuelles\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Anmeldung\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Anmeldung\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Bildergalerie\Default.aspx.cs">
@@ -343,10 +367,16 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\EventStorage.cs" />
     <Compile Include="Storage\DataStorageDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataStorageDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\EventStorageDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventStorageDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Storage\GenericPagesStorage.cs" />
     <Compile Include="Storage\GenericPagesDataSet.Designer.cs">
@@ -440,6 +470,17 @@
       <DependentUpon>GenericPagesDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\TestLocal.pubxml" />
+    <Content Include="Storage\EventStorageDataSet.xsc">
+      <DependentUpon>EventStorageDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Storage\EventStorageDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EventStorageDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Storage\EventStorageDataSet.xss">
+      <DependentUpon>EventStorageDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Storage\GenericPagesDataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>

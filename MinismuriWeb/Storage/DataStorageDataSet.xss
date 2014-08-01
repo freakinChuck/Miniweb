@@ -12,7 +12,7 @@
     <Shape ID="DesignTable:Aktuelles" ZOrder="7" X="837" Y="446" Height="143" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
     <Shape ID="DesignTable:FileUpload" ZOrder="6" X="195" Y="245" Height="86" Width="155" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="82" />
     <Shape ID="DesignTable:FreigegebeneGalerien" ZOrder="5" X="214" Y="59" Height="67" Width="192" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
-    <Shape ID="DesignTable:Benutzer" ZOrder="2" X="621" Y="240" Height="315" Width="163" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="311" />
+    <Shape ID="DesignTable:Benutzer" ZOrder="2" X="621" Y="240" Height="315" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="311" />
     <Shape ID="DesignTable:BlogEntry" ZOrder="3" X="397" Y="239" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
     <Shape ID="DesignTable:BildergalerieBegleittext" ZOrder="1" X="985" Y="274" Height="67" Width="203" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="63" />
   </Shapes>

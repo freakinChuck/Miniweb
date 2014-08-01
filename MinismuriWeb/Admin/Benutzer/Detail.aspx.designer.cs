@@ -112,6 +112,15 @@ namespace MinismuriWeb.Admin.Benutzer {
         protected global::System.Web.UI.WebControls.CheckBox terminadminDisplayCheckBox;
         
         /// <summary>
+        /// eventDisplayCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox eventDisplayCheckBox;
+        
+        /// <summary>
         /// videoadminDisplayCheckBox control.
         /// </summary>
         /// <remarks>
@@ -245,6 +254,15 @@ namespace MinismuriWeb.Admin.Benutzer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox terminadminEditCheckBox;
+        
+        /// <summary>
+        /// eventEditCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox eventEditCheckBox;
         
         /// <summary>
         /// videoadminEditCheckBox control.
@@ -389,6 +407,15 @@ namespace MinismuriWeb.Admin.Benutzer {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox terminadminNewCheckBox;
+        
+        /// <summary>
+        /// eventNewCheckBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox eventNewCheckBox;
         
         /// <summary>
         /// videoadminNewCheckBox control.

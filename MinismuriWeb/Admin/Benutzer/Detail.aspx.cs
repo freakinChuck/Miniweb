@@ -76,6 +76,7 @@ namespace MinismuriWeb.Admin.Benutzer
                     terminadminDisplayCheckBox.Checked = user.Terminadmin;
                     videoadminDisplayCheckBox.Checked = user.Videoadministrator;
                     seitenadminDisplayCheckBox.Checked = user.Seitenadmin;
+                    eventDisplayCheckBox.Checked = user.Eventadmin;
                     
                     benutzeradminEditCheckBox.Checked = user.Benutzeradmin;
                     blogschreiberEditCheckBox.Checked = user.Blogschreiber;
@@ -86,6 +87,7 @@ namespace MinismuriWeb.Admin.Benutzer
                     terminadminEditCheckBox.Checked = user.Terminadmin;
                     videoadminEditCheckBox.Checked = user.Videoadministrator;
                     seitenadminEditCheckBox.Checked = user.Seitenadmin;
+                    eventEditCheckBox.Checked = user.Eventadmin;
 
                 }
                 aktivCheckBox.Checked = Aktiv;
@@ -136,6 +138,7 @@ namespace MinismuriWeb.Admin.Benutzer
                 row.Terminadmin = terminadminEditCheckBox.Checked;
                 row.Videoadministrator = videoadminEditCheckBox.Checked;
                 row.Seitenadmin = seitenadminEditCheckBox.Checked;
+                row.Eventadmin = eventEditCheckBox.Checked;
             }
 
             storage.Save();
@@ -185,6 +188,7 @@ namespace MinismuriWeb.Admin.Benutzer
             row.Terminadmin = terminadminNewCheckBox.Checked;
             row.Videoadministrator = videoadminNewCheckBox.Checked;
             row.Seitenadmin = seitenadminNewCheckBox.Checked;
+            row.Eventadmin = eventNewCheckBox.Checked;
             storage.DataSet.Benutzer.AddBenutzerRow(row);
             storage.Save();
             Response.Redirect("Default.aspx");
