@@ -1,0 +1,122 @@
+﻿body 
+{
+    background-color:#D4C2AA;
+    padding: 0px;
+    margin: 0px;
+    color:#666666;
+    font-family:Arial;
+}
+h1
+{
+    font-size:18pt;
+}
+h2
+{
+    font-size:16pt;
+}
+h3
+{
+    font-size:15pt;
+} 
+h4
+{
+    font-size:14pt;
+    margin-bottom:3px;
+}
+
+a 
+{
+    color:#66584D;
+    font-size:90%;
+}
+
+.NavigationItemPanel
+{
+    height:30px;
+    background-image:url('/_Global/ImagesNavigation/NavigationImage.png');
+    color:#282828 !important;
+    padding-top:7px;
+    cursor:pointer;
+}
+.NavigationItemPanel:Hover
+{
+    background-image:url('/_Global/ImagesNavigation/NavigationImage_Selected.png');
+    color:#FDFDFD !important;
+}
+.NavigationItemPanel > a
+{
+    color:#282828 !important;
+    text-decoration:none;
+}
+.NavigationItemPanel:Hover > a
+{
+    color:#FDFDFD !important;
+}
+.NavigationItemPanelSelected > a
+{
+    color:#FDFDFD !important;
+    text-decoration:none;
+}
+.NavigationItemPanelSelected
+{
+    height:30px;
+    background-image:url('/_Global/ImagesNavigation/NavigationImage_Selected.png');
+    color:#FDFDFD !important;
+    padding-top:7px;
+}
+.FirstNavigationItemPanel
+{
+    background-image:url('/_Global/ImagesNavigation/FirstNavigationImage.png');
+    width:67px;
+}
+.FirstNavigationItemPanel:Hover
+{
+    background-image:url('/_Global/ImagesNavigation/FirstNavigationImage_Selected.png');
+}
+.FirstNavigationItemPanelSelected
+{
+    background-image:url('/_Global/ImagesNavigation/FirstNavigationImage_Selected.png');
+    width:67px;
+}
+.LastNavigationItemPanel
+{
+    background-image:url('/_Global/ImagesNavigation/LastNavigationImage.png');
+    width:64px;
+}
+.LastNavigationItemPanel:Hover
+{
+    background-image:url('/_Global/ImagesNavigation/LastNavigationImage_Selected.png') ;
+}
+.LastNavigationItemPanelSelected
+{
+    background-image:url('/_Global/ImagesNavigation/LastNavigationImage_Selected.png');
+    width:64px;
+}
+
+#MainContentDiv
+{
+    width:1000px;
+    background-color:#EFE8DF;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top:0px;
+    padding:20px 10px 10px 10px;
+    min-height:600px;
+}
+#MasterTitleImage
+{
+    display:block;
+}
+#MasterCustomContentDiv
+{
+    margin:5px;
+    border: 1px solid #D4C2AA;
+    padding:5px;
+    background-color:white;
+    min-height:450px;
+}
+#MasterFooterDiv
+{
+    text-align:center;
+    color:#907D6B;
+}

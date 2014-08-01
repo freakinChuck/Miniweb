@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StatisticDataSet" targetNamespace="http://tempuri.org/StatisticDataSet.xsd" xmlns:mstns="http://tempuri.org/StatisticDataSet.xsd" xmlns="http://tempuri.org/StatisticDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StatisticDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StatisticDataSet" msprop:Generator_UserDSName="StatisticDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="HitCount" msprop:Generator_TableClassName="HitCountDataTable" msprop:Generator_TableVarName="tableHitCount" msprop:Generator_RowChangedName="HitCountRowChanged" msprop:Generator_TablePropName="HitCount" msprop:Generator_RowDeletingName="HitCountRowDeleting" msprop:Generator_RowChangingName="HitCountRowChanging" msprop:Generator_RowEvHandlerName="HitCountRowChangeEventHandler" msprop:Generator_RowDeletedName="HitCountRowDeleted" msprop:Generator_RowClassName="HitCountRow" msprop:Generator_UserTableName="HitCount" msprop:Generator_RowEvArgName="HitCountRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Browser" msprop:Generator_ColumnVarNameInTable="columnBrowser" msprop:Generator_ColumnPropNameInRow="Browser" msprop:Generator_ColumnPropNameInTable="BrowserColumn" msprop:Generator_UserColumnName="Browser" type="xs:string" minOccurs="0" />
+              <xs:element name="Version" msprop:Generator_ColumnVarNameInTable="columnVersion" msprop:Generator_ColumnPropNameInRow="Version" msprop:Generator_ColumnPropNameInTable="VersionColumn" msprop:Generator_UserColumnName="Version" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

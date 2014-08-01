@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CFD5E133-F4CF-4492-B6F6-B10FF58BF25D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MinismuriWeb</RootNamespace>
+    <AssemblyName>MinismuriWeb</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <TargetFrameworkProfile />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>AjaxControlToolkit.Binary.NET4\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>DotNetZip\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Admin\Aktuelles\Default.aspx" />
+    <Content Include="Admin\Benutzer\Default.aspx" />
+    <Content Include="Admin\Benutzer\Detail.aspx" />
+    <Content Include="Admin\Bildergalerie\Default.aspx" />
+    <Content Include="Admin\Bildergalerie\EditText.aspx" />
+    <Content Include="Admin\Blog\Default.aspx" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\Gaestebuch\Default.aspx" />
+    <Content Include="Admin\Generic\Default.aspx" />
+    <Content Include="Admin\Links\Default.aspx" />
+    <Content Include="Admin\Video\Default.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\down.png" />
+    <Content Include="Images\up.png" />
+    <Content Include="Images\HomeImage.jpg" />
+    <Content Include="Images\Kalender.png" />
+    <Content Include="Login.aspx" />
+    <Content Include="Pages\Aktuelles\Default.aspx" />
+    <Content Include="Pages\Bildergalerie\Default.aspx" />
+    <Content Include="Pages\Bildergalerie\Download.aspx" />
+    <Content Include="Pages\Bildergalerie\GalerieDisplayer.ascx" />
+    <Content Include="Pages\Bildergalerie\GalerieItem.ascx" />
+    <Content Include="Pages\Blog\Default.aspx" />
+    <Content Include="Pages\Gaestebuch\Default.aspx" />
+    <Content Include="Pages\Gaestebuch\NeuerEintrag.aspx" />
+    <Content Include="Pages\Generic\Default.aspx" />
+    <Content Include="Pages\Kontakt\Default.aspx" />
+    <Content Include="Pages\Links\Default.aspx" />
+    <Content Include="Pages\Videos\Default.aspx" />
+    <Content Include="Trial\FileUpload.aspx" />
+    <Content Include="Trial\FileUploadIframeContent.aspx" />
+    <Content Include="Trial\MasterPageTest.aspx" />
+    <Content Include="Upload\FileUpload.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="_Content\Content.css" />
+    <Content Include="_Content\FileUpload\FileUpload.js" />
+    <Content Include="_Content\FileUpload\jquery-ui.css" />
+    <Content Include="_Content\FileUpload\jquery-ui.min.js" />
+    <Content Include="_Content\FileUpload\jquery.fileupload-ui.css" />
+    <Content Include="_Content\FileUpload\jquery.fileupload-ui.js" />
+    <Content Include="_Content\FileUpload\jquery.fileupload.js" />
+    <Content Include="_Content\FileUpload\jquery.iframe-transport.js" />
+    <Content Include="_Content\FileUpload\jquery.tmpl.min.js" />
+    <Content Include="_Content\FileUpload\pbar-ani.gif" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\ad_next.png" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\ad_prev.png" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\ad_scroll_back.png" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\ad_scroll_forward.png" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\jquery.ad-gallery.css" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\jquery.ad-gallery.js" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\LICENSE.txt" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\loader.gif" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\opa75.png" />
+    <Content Include="_Content\ImageGallery\AdGallery\lib\trans.gif" />
+    <Content Include="_Content\Scripts\jquery-1.10.2.js" />
+    <Content Include="_Content\Scripts\modernizr-2.0.6.min.js" />
+    <Content Include="_Content\Video\flowplayer\example\index.html" />
+    <Content Include="_Content\Video\flowplayer\example\style.css" />
+    <Content Include="_Content\Video\flowplayer\flowplayer-3.2.12.min.js" />
+    <Content Include="_Content\Video\flowplayer\flowplayer-3.2.16.swf" />
+    <Content Include="_Content\Video\flowplayer\flowplayer.controls-3.2.15.swf" />
+    <Content Include="_Content\Video\flowplayer\flowplayer.pseudostreaming-3.2.12.swf" />
+    <Content Include="_Content\Video\flowplayer\LICENSE.txt" />
+    <Content Include="_Content\Video\flowplayer\README.txt" />
+    <Content Include="_Error\404.aspx" />
+    <Content Include="_Global\ImagesNavigation\FirstNavigationImage.png" />
+    <Content Include="_Global\ImagesNavigation\FirstNavigationImage_Selected.png" />
+    <Content Include="_Global\ImagesNavigation\NavigationImage.png" />
+    <Content Include="_Global\ImagesNavigation\NavigationImage_Selected.png" />
+    <Content Include="_Global\ImagesNavigation\LastNavigationImage.png" />
+    <Content Include="_Global\ImagesNavigation\LastNavigationImage_Selected.png" />
+    <Content Include="_Global\Master.css" />
+    <Content Include="_Global\MinismuriTitleImage.png" />
+    <Content Include="_Global\NavigationWebUserControl.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin\AdminMaster.master.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminMaster.master.designer.cs">
+      <DependentUpon>AdminMaster.master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Aktuelles\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Aktuelles\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Benutzer\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Benutzer\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Benutzer\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Benutzer\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Bildergalerie\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Bildergalerie\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Bildergalerie\EditText.aspx.cs">
+      <DependentUpon>EditText.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Bildergalerie\EditText.aspx.designer.cs">
+      <DependentUpon>EditText.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Blog\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Blog\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Gaestebuch\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Gaestebuch\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Generic\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Generic\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Links\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Links\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Video\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Video\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FileuploadHandler.ashx.cs">
+      <DependentUpon>FileuploadHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="ImageExtensions.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Aktuelles\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Aktuelles\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\Download.aspx.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\Download.aspx.designer.cs">
+      <DependentUpon>Download.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\GalerieDisplayer.ascx.cs">
+      <DependentUpon>GalerieDisplayer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\GalerieDisplayer.ascx.designer.cs">
+      <DependentUpon>GalerieDisplayer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\GalerieItem.ascx.cs">
+      <DependentUpon>GalerieItem.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Bildergalerie\GalerieItem.ascx.designer.cs">
+      <DependentUpon>GalerieItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Blog\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Blog\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Gaestebuch\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Gaestebuch\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Gaestebuch\NeuerEintrag.aspx.cs">
+      <DependentUpon>NeuerEintrag.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Gaestebuch\NeuerEintrag.aspx.designer.cs">
+      <DependentUpon>NeuerEintrag.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Generic\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Generic\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Kontakt\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Kontakt\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Links\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Links\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Videos\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Videos\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\DataStorageDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataStorageDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\GenericPagesStorage.cs" />
+    <Compile Include="Storage\GenericPagesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenericPagesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\StatisticDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatisticDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Storage\StatisticStorage.cs" />
+    <Compile Include="Storage\DataStorage.cs" />
+    <Compile Include="Trial\FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Trial\FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trial\FileUploadIframeContent.aspx.cs">
+      <DependentUpon>FileUploadIframeContent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Trial\FileUploadIframeContent.aspx.designer.cs">
+      <DependentUpon>FileUploadIframeContent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Trial\MasterPageTest.aspx.cs">
+      <DependentUpon>MasterPageTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Trial\MasterPageTest.aspx.designer.cs">
+      <DependentUpon>MasterPageTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\FileUpload.aspx.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Upload\FileUpload.aspx.designer.cs">
+      <DependentUpon>FileUpload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Upload\UploadType.cs" />
+    <Compile Include="_Error\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Error\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="_Global\MinismuriMaster.Master.cs">
+      <DependentUpon>MinismuriMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Global\MinismuriMaster.Master.designer.cs">
+      <DependentUpon>MinismuriMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="_Global\NavigationItem.cs" />
+    <Compile Include="_Global\NavigationWebUserControl.ascx.cs">
+      <DependentUpon>NavigationWebUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="_Global\NavigationWebUserControl.ascx.designer.cs">
+      <DependentUpon>NavigationWebUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="_MiscCode\Crypto.cs" />
+    <Compile Include="_MiscCode\Time.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="_Global\MinismuriMaster.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Admin\FileUpload\" />
+    <Folder Include="Pages\Videos\VideoLibrary\" />
+    <Folder Include="UploadData\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FileuploadHandler.ashx" />
+    <Content Include="Admin\AdminMaster.master" />
+    <None Include="Properties\PublishProfiles\ProdLocal.pubxml" />
+    <None Include="Properties\PublishProfiles\SOMEE.pubxml" />
+    <Content Include="Storage\StatisticDataSet.xsc">
+      <DependentUpon>StatisticDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Storage\GenericPagesDataSet.xsc">
+      <DependentUpon>GenericPagesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\TestLocal.pubxml" />
+    <None Include="Storage\GenericPagesDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GenericPagesDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Storage\GenericPagesDataSet.xss">
+      <DependentUpon>GenericPagesDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Storage\StatisticDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StatisticDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Storage\StatisticDataSet.xss">
+      <DependentUpon>StatisticDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Storage\DataStorageDataSet.xsc">
+      <DependentUpon>DataStorageDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Storage\DataStorageDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataStorageDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Storage\DataStorageDataSet.xss">
+      <DependentUpon>DataStorageDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>31417</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+﻿TODO: DB for:
+- TitleText
+- Aktuelles
+- Bildergalerie? :-/ oder FileSys?
+- 

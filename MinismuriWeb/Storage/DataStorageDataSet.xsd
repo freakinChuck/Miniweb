@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataStorageDataSet" targetNamespace="http://tempuri.org/StorageDataSet.xsd" xmlns:mstns="http://tempuri.org/StorageDataSet.xsd" xmlns="http://tempuri.org/StorageDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataStorageDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataStorageDataSet" msprop:Generator_UserDSName="DataStorageDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Video" msprop:Generator_TableClassName="VideoDataTable" msprop:Generator_TableVarName="tableVideo" msprop:Generator_TablePropName="Video" msprop:Generator_RowDeletingName="VideoRowDeleting" msprop:Generator_RowChangingName="VideoRowChanging" msprop:Generator_RowEvHandlerName="VideoRowChangeEventHandler" msprop:Generator_RowDeletedName="VideoRowDeleted" msprop:Generator_UserTableName="Video" msprop:Generator_RowChangedName="VideoRowChanged" msprop:Generator_RowEvArgName="VideoRowChangeEvent" msprop:Generator_RowClassName="VideoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Anzeigename" msprop:Generator_ColumnVarNameInTable="columnAnzeigename" msprop:Generator_ColumnPropNameInRow="Anzeigename" msprop:Generator_ColumnPropNameInTable="AnzeigenameColumn" msprop:Generator_UserColumnName="Anzeigename" type="xs:string" minOccurs="0" />
+              <xs:element name="FileName" msprop:Generator_ColumnVarNameInTable="columnFileName" msprop:Generator_ColumnPropNameInRow="FileName" msprop:Generator_ColumnPropNameInTable="FileNameColumn" msprop:Generator_UserColumnName="FileName" type="xs:string" minOccurs="0" />
+              <xs:element name="Ordnungszahl" msprop:Generator_ColumnVarNameInTable="columnOrdnungszahl" msprop:Generator_ColumnPropNameInRow="Ordnungszahl" msprop:Generator_ColumnPropNameInTable="OrdnungszahlColumn" msprop:Generator_UserColumnName="Ordnungszahl" type="xs:int" default="0" minOccurs="0" />
+              <xs:element name="Freigeber" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="Freigeber" msprop:Generator_ColumnVarNameInTable="columnFreigeber" msprop:Generator_ColumnPropNameInTable="FreigeberColumn" msprop:Generator_UserColumnName="Freigeber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LinkEintrag" msprop:Generator_TableClassName="LinkEintragDataTable" msprop:Generator_TableVarName="tableLinkEintrag" msprop:Generator_TablePropName="LinkEintrag" msprop:Generator_RowDeletingName="LinkEintragRowDeleting" msprop:Generator_RowChangingName="LinkEintragRowChanging" msprop:Generator_RowEvHandlerName="LinkEintragRowChangeEventHandler" msprop:Generator_RowDeletedName="LinkEintragRowDeleted" msprop:Generator_UserTableName="LinkEintrag" msprop:Generator_RowChangedName="LinkEintragRowChanged" msprop:Generator_RowEvArgName="LinkEintragRowChangeEvent" msprop:Generator_RowClassName="LinkEintragRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Titel" msprop:Generator_ColumnVarNameInTable="columnTitel" msprop:Generator_ColumnPropNameInRow="Titel" msprop:Generator_ColumnPropNameInTable="TitelColumn" msprop:Generator_UserColumnName="Titel" type="xs:string" minOccurs="0" />
+              <xs:element name="Beschreibung" msprop:Generator_ColumnVarNameInTable="columnBeschreibung" msprop:Generator_ColumnPropNameInRow="Beschreibung" msprop:Generator_ColumnPropNameInTable="BeschreibungColumn" msprop:Generator_UserColumnName="Beschreibung" type="xs:string" minOccurs="0" />
+              <xs:element name="Link" msprop:Generator_ColumnVarNameInTable="columnLink" msprop:Generator_ColumnPropNameInRow="Link" msprop:Generator_ColumnPropNameInTable="LinkColumn" msprop:Generator_UserColumnName="Link" type="xs:string" minOccurs="0" />
+              <xs:element name="Ordnungszahl" msprop:Generator_ColumnVarNameInTable="columnOrdnungszahl" msprop:Generator_ColumnPropNameInRow="Ordnungszahl" msprop:Generator_ColumnPropNameInTable="OrdnungszahlColumn" msprop:Generator_UserColumnName="Ordnungszahl" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GaestebuchEintrag" msprop:Generator_TableClassName="GaestebuchEintragDataTable" msprop:Generator_TableVarName="tableGaestebuchEintrag" msprop:Generator_TablePropName="GaestebuchEintrag" msprop:Generator_RowDeletingName="GaestebuchEintragRowDeleting" msprop:Generator_RowChangingName="GaestebuchEintragRowChanging" msprop:Generator_RowEvHandlerName="GaestebuchEintragRowChangeEventHandler" msprop:Generator_RowDeletedName="GaestebuchEintragRowDeleted" msprop:Generator_UserTableName="GaestebuchEintrag" msprop:Generator_RowChangedName="GaestebuchEintragRowChanged" msprop:Generator_RowEvArgName="GaestebuchEintragRowChangeEvent" msprop:Generator_RowClassName="GaestebuchEintragRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="Nachricht" msprop:Generator_ColumnVarNameInTable="columnNachricht" msprop:Generator_ColumnPropNameInRow="Nachricht" msprop:Generator_ColumnPropNameInTable="NachrichtColumn" msprop:Generator_UserColumnName="Nachricht" type="xs:string" minOccurs="0" />
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Aktuelles" msprop:Generator_TableClassName="AktuellesDataTable" msprop:Generator_TableVarName="tableAktuelles" msprop:Generator_TablePropName="Aktuelles" msprop:Generator_RowDeletingName="AktuellesRowDeleting" msprop:Generator_RowChangingName="AktuellesRowChanging" msprop:Generator_RowEvHandlerName="AktuellesRowChangeEventHandler" msprop:Generator_RowDeletedName="AktuellesRowDeleted" msprop:Generator_UserTableName="Aktuelles" msprop:Generator_RowChangedName="AktuellesRowChanged" msprop:Generator_RowEvArgName="AktuellesRowChangeEvent" msprop:Generator_RowClassName="AktuellesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Titel" msprop:Generator_ColumnVarNameInTable="columnTitel" msprop:Generator_ColumnPropNameInRow="Titel" msprop:Generator_ColumnPropNameInTable="TitelColumn" msprop:Generator_UserColumnName="Titel" type="xs:string" minOccurs="0" />
+              <xs:element name="Monat" msprop:Generator_ColumnVarNameInTable="columnMonat" msprop:Generator_ColumnPropNameInRow="Monat" msprop:Generator_ColumnPropNameInTable="MonatColumn" msprop:Generator_UserColumnName="Monat" type="xs:string" minOccurs="0" />
+              <xs:element name="Tag" msprop:Generator_ColumnVarNameInTable="columnTag" msprop:Generator_ColumnPropNameInRow="Tag" msprop:Generator_ColumnPropNameInTable="TagColumn" msprop:Generator_UserColumnName="Tag" type="xs:string" minOccurs="0" />
+              <xs:element name="ZeigenAb" msprop:Generator_ColumnVarNameInTable="columnZeigenAb" msprop:Generator_ColumnPropNameInRow="ZeigenAb" msprop:Generator_ColumnPropNameInTable="ZeigenAbColumn" msprop:Generator_UserColumnName="ZeigenAb" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ZeigenBis" msprop:Generator_ColumnVarNameInTable="columnZeigenBis" msprop:Generator_ColumnPropNameInRow="ZeigenBis" msprop:Generator_ColumnPropNameInTable="ZeigenBisColumn" msprop:Generator_UserColumnName="ZeigenBis" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FileUpload" msprop:Generator_TableClassName="FileUploadDataTable" msprop:Generator_TableVarName="tableFileUpload" msprop:Generator_TablePropName="FileUpload" msprop:Generator_RowDeletingName="FileUploadRowDeleting" msprop:Generator_RowChangingName="FileUploadRowChanging" msprop:Generator_RowEvHandlerName="FileUploadRowChangeEventHandler" msprop:Generator_RowDeletedName="FileUploadRowDeleted" msprop:Generator_UserTableName="FileUpload" msprop:Generator_RowChangedName="FileUploadRowChanged" msprop:Generator_RowEvArgName="FileUploadRowChangeEvent" msprop:Generator_RowClassName="FileUploadRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="OriginalBezeichnung" msprop:Generator_ColumnVarNameInTable="columnOriginalBezeichnung" msprop:Generator_ColumnPropNameInRow="OriginalBezeichnung" msprop:Generator_ColumnPropNameInTable="OriginalBezeichnungColumn" msprop:Generator_UserColumnName="OriginalBezeichnung" type="xs:string" minOccurs="0" />
+              <xs:element name="FilesysName" msprop:Generator_ColumnVarNameInTable="columnFilesysName" msprop:Generator_ColumnPropNameInRow="FilesysName" msprop:Generator_ColumnPropNameInTable="FilesysNameColumn" msprop:Generator_UserColumnName="FilesysName" type="xs:string" minOccurs="0" />
+              <xs:element name="Uploader" msprop:Generator_ColumnVarNameInTable="columnUploader" msprop:Generator_ColumnPropNameInRow="Uploader" msprop:Generator_ColumnPropNameInTable="UploaderColumn" msprop:Generator_UserColumnName="Uploader" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FreigegebeneGalerien" msprop:Generator_TableClassName="FreigegebeneGalerienDataTable" msprop:Generator_TableVarName="tableFreigegebeneGalerien" msprop:Generator_RowChangedName="FreigegebeneGalerienRowChanged" msprop:Generator_TablePropName="FreigegebeneGalerien" msprop:Generator_RowDeletingName="FreigegebeneGalerienRowDeleting" msprop:Generator_RowChangingName="FreigegebeneGalerienRowChanging" msprop:Generator_RowEvHandlerName="FreigegebeneGalerienRowChangeEventHandler" msprop:Generator_RowDeletedName="FreigegebeneGalerienRowDeleted" msprop:Generator_RowClassName="FreigegebeneGalerienRow" msprop:Generator_UserTableName="FreigegebeneGalerien" msprop:Generator_RowEvArgName="FreigegebeneGalerienRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="FreigeberUsername" msprop:Generator_ColumnVarNameInTable="columnFreigeberUsername" msprop:Generator_ColumnPropNameInRow="FreigeberUsername" msprop:Generator_ColumnPropNameInTable="FreigeberUsernameColumn" msprop:Generator_UserColumnName="FreigeberUsername" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Benutzer" msprop:Generator_TableClassName="BenutzerDataTable" msprop:Generator_TableVarName="tableBenutzer" msprop:Generator_TablePropName="Benutzer" msprop:Generator_RowDeletingName="BenutzerRowDeleting" msprop:Generator_RowChangingName="BenutzerRowChanging" msprop:Generator_RowEvHandlerName="BenutzerRowChangeEventHandler" msprop:Generator_RowDeletedName="BenutzerRowDeleted" msprop:Generator_UserTableName="Benutzer" msprop:Generator_RowChangedName="BenutzerRowChanged" msprop:Generator_RowEvArgName="BenutzerRowChangeEvent" msprop:Generator_RowClassName="BenutzerRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Benutzername" msprop:Generator_ColumnVarNameInTable="columnBenutzername" msprop:Generator_ColumnPropNameInRow="Benutzername" msprop:Generator_ColumnPropNameInTable="BenutzernameColumn" msprop:Generator_UserColumnName="Benutzername" type="xs:string" minOccurs="0" />
+              <xs:element name="PasswordHash" msprop:Generator_ColumnVarNameInTable="columnPasswordHash" msprop:Generator_ColumnPropNameInRow="PasswordHash" msprop:Generator_ColumnPropNameInTable="PasswordHashColumn" msprop:Generator_UserColumnName="PasswordHash" type="xs:string" minOccurs="0" />
+              <xs:element name="Ersteller" msprop:Generator_ColumnVarNameInTable="columnErsteller" msprop:Generator_ColumnPropNameInRow="Ersteller" msprop:Generator_ColumnPropNameInTable="ErstellerColumn" msprop:Generator_UserColumnName="Ersteller" type="xs:string" minOccurs="0" />
+              <xs:element name="Aktiv" msprop:Generator_ColumnVarNameInTable="columnAktiv" msprop:Generator_ColumnPropNameInRow="Aktiv" msprop:Generator_ColumnPropNameInTable="AktivColumn" msprop:Generator_UserColumnName="Aktiv" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Videoadministrator" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Videoadministrator" msprop:Generator_ColumnVarNameInTable="columnVideoadministrator" msprop:Generator_ColumnPropNameInTable="VideoadministratorColumn" msprop:Generator_UserColumnName="Videoadministrator" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Terminadmin" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Terminadmin" msprop:Generator_ColumnVarNameInTable="columnTerminadmin" msprop:Generator_ColumnPropNameInTable="TerminadminColumn" msprop:Generator_UserColumnName="Terminadmin" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Linkadmin" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Linkadmin" msprop:Generator_ColumnVarNameInTable="columnLinkadmin" msprop:Generator_ColumnPropNameInTable="LinkadminColumn" msprop:Generator_UserColumnName="Linkadmin" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Gaestebuchmoderator" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Gaestebuchmoderator" msprop:Generator_ColumnVarNameInTable="columnGaestebuchmoderator" msprop:Generator_ColumnPropNameInTable="GaestebuchmoderatorColumn" msprop:Generator_UserColumnName="Gaestebuchmoderator" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="BildergalerieFreigeber" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="BildergalerieFreigeber" msprop:Generator_ColumnVarNameInTable="columnBildergalerieFreigeber" msprop:Generator_ColumnPropNameInTable="BildergalerieFreigeberColumn" msprop:Generator_UserColumnName="BildergalerieFreigeber" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="BildergalerieUploader" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="BildergalerieUploader" msprop:Generator_ColumnVarNameInTable="columnBildergalerieUploader" msprop:Generator_ColumnPropNameInTable="BildergalerieUploaderColumn" msprop:Generator_UserColumnName="BildergalerieUploader" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Blogschreiber" msdata:Caption="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Blogschreiber" msprop:Generator_ColumnVarNameInTable="columnBlogschreiber" msprop:Generator_ColumnPropNameInTable="BlogschreiberColumn" msprop:Generator_UserColumnName="Blogschreiber" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Benutzeradmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Benutzeradmin" msprop:Generator_ColumnVarNameInTable="columnBenutzeradmin" msprop:Generator_ColumnPropNameInTable="BenutzeradminColumn" msprop:Generator_UserColumnName="Benutzeradmin" type="xs:boolean" default="false" minOccurs="0" />
+              <xs:element name="Seitenadmin" msprop:nullValue="false" msprop:Generator_ColumnPropNameInRow="Seitenadmin" msprop:Generator_ColumnVarNameInTable="columnSeitenadmin" msprop:Generator_ColumnPropNameInTable="SeitenadminColumn" msprop:Generator_UserColumnName="Seitenadmin" type="xs:boolean" default="false" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BlogEntry" msprop:Generator_TableClassName="BlogEntryDataTable" msprop:Generator_TableVarName="tableBlogEntry" msprop:Generator_TablePropName="BlogEntry" msprop:Generator_RowDeletingName="BlogEntryRowDeleting" msprop:Generator_RowChangingName="BlogEntryRowChanging" msprop:Generator_RowEvHandlerName="BlogEntryRowChangeEventHandler" msprop:Generator_RowDeletedName="BlogEntryRowDeleted" msprop:Generator_UserTableName="BlogEntry" msprop:Generator_RowChangedName="BlogEntryRowChanged" msprop:Generator_RowEvArgName="BlogEntryRowChangeEvent" msprop:Generator_RowClassName="BlogEntryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Titel" msprop:Generator_ColumnVarNameInTable="columnTitel" msprop:Generator_ColumnPropNameInRow="Titel" msprop:Generator_ColumnPropNameInTable="TitelColumn" msprop:Generator_UserColumnName="Titel" type="xs:string" minOccurs="0" />
+              <xs:element name="Datum" msprop:Generator_ColumnVarNameInTable="columnDatum" msprop:Generator_ColumnPropNameInRow="Datum" msprop:Generator_ColumnPropNameInTable="DatumColumn" msprop:Generator_UserColumnName="Datum" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Content" msprop:Generator_ColumnVarNameInTable="columnContent" msprop:Generator_ColumnPropNameInRow="Content" msprop:Generator_ColumnPropNameInTable="ContentColumn" msprop:Generator_UserColumnName="Content" type="xs:string" minOccurs="0" />
+              <xs:element name="Ersteller" msprop:Generator_ColumnVarNameInTable="columnErsteller" msprop:Generator_ColumnPropNameInRow="Ersteller" msprop:Generator_ColumnPropNameInTable="ErstellerColumn" msprop:Generator_UserColumnName="Ersteller" type="xs:string" minOccurs="0" />
+              <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="ImagePath" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInRow="ImagePath" msprop:Generator_ColumnVarNameInTable="columnImagePath" msprop:Generator_ColumnPropNameInTable="ImagePathColumn" msprop:Generator_UserColumnName="ImagePath" type="xs:string" minOccurs="0" />
+              <xs:element name="Startseite" msprop:Generator_ColumnVarNameInTable="columnStartseite" msprop:Generator_ColumnPropNameInRow="Startseite" msprop:Generator_ColumnPropNameInTable="StartseiteColumn" msprop:Generator_UserColumnName="Startseite" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BildergalerieBegleittext" msprop:Generator_TableClassName="BildergalerieBegleittextDataTable" msprop:Generator_TableVarName="tableBildergalerieBegleittext" msprop:Generator_TablePropName="BildergalerieBegleittext" msprop:Generator_RowDeletingName="BildergalerieBegleittextRowDeleting" msprop:Generator_RowChangingName="BildergalerieBegleittextRowChanging" msprop:Generator_RowEvHandlerName="BildergalerieBegleittextRowChangeEventHandler" msprop:Generator_RowDeletedName="BildergalerieBegleittextRowDeleted" msprop:Generator_UserTableName="BildergalerieBegleittext" msprop:Generator_RowChangedName="BildergalerieBegleittextRowChanged" msprop:Generator_RowEvArgName="BildergalerieBegleittextRowChangeEvent" msprop:Generator_RowClassName="BildergalerieBegleittextRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="GalerieName" msprop:Generator_ColumnVarNameInTable="columnGalerieName" msprop:Generator_ColumnPropNameInRow="GalerieName" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="GalerieNameColumn" msprop:Generator_UserColumnName="GalerieName" type="xs:string" minOccurs="0" />
+              <xs:element name="Inhalt" msprop:Generator_ColumnVarNameInTable="columnInhalt" msprop:Generator_ColumnPropNameInRow="Inhalt" msprop:nullValue="_empty" msprop:Generator_ColumnPropNameInTable="InhaltColumn" msprop:Generator_UserColumnName="Inhalt" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

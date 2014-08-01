@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/_Global/MinismuriMaster.Master" AutoEventWireup="true" CodeBehind="AdminMaster.master.cs" Inherits="MinismuriWeb.Admin.AdminMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <asp:LinkButton ID="logoutButton" Text="Logout" runat="server" style="float:right" OnClick="logoutButton_Click" />
+
+    <a href="/Admin/Default.aspx" 
+        style="float:right; visibility:<%= !ShowAdminLink ? "hidden" : "visible" %>; margin-right:20px;" >
+        Administration Hauptseite
+    </a>
+
+    
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+
+
+</asp:Content>
+

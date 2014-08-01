@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode title="Home" url="Default.aspx">
+    <siteMapNode title="News" url="Pages/Blog/Default.aspx" />
+    <siteMapNode title="Termine" url="Pages/Aktuelles/Default.aspx" />
+    <siteMapNode title="Bilder" url="Pages/Bildergalerie/Default.aspx" />
+    <siteMapNode title="Videos" url="Pages/Videos/Default.aspx" />
+
+    <siteMapNode description="Dynamic" />
+    
+    <siteMapNode title="Gästebuch" url="Pages/Gaestebuch/Default.aspx">
+      <siteMapNode title="Gästebucheintrag erstellen" url="Pages/Gaestebuch/NeuerEintrag.aspx" /> 
+    </siteMapNode>
+    <!--<siteMapNode title="Kontakt" url="Pages/Kontakt/Default.aspx" />-->
+    <siteMapNode title="Links" url="Pages/Links/Default.aspx" />
+    <siteMapNode title="Login" url="Admin/Default.aspx" description="AuthOnly" />
+  </siteMapNode>
+</siteMap>
