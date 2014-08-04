@@ -31,6 +31,33 @@ namespace MinismuriWeb.Admin.EventAnmeldung {
         protected global::System.Web.UI.WebControls.LinkButton loeschenLinkButton;
         
         /// <summary>
+        /// anmeldungenRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater anmeldungenRepeater;
+        
+        /// <summary>
+        /// abmeldungenRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater abmeldungenRepeater;
+        
+        /// <summary>
+        /// exportButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton exportButton;
+        
+        /// <summary>
         /// editDiv control.
         /// </summary>
         /// <remarks>

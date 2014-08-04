@@ -36,6 +36,12 @@
             padding:10px;
         }
 
+        pre
+        {
+            font-family:inherit;
+            line-height:150%;
+        }
+
     </style>
 
 
@@ -61,11 +67,40 @@
 
 
         <span class="displayLabel">Beschreibung</span>
-        <span class="displayContent"><%= Beschreibung %></span>
+        <span class="displayContent"><pre><%= Beschreibung %></pre></span>
 
         <asp:LinkButton Text="Löschen" runat="server" ID="loeschenLinkButton" OnClick="loeschenLinkButton_Click" style="float:right;" OnClientClick="return confirm('Sind sie sicher, dass sie diesen Event löschen möchten?')" />
         <a href="Detail.aspx?Event=<%=EventId %>&Edit=True" style="float:right; margin-right:10px">Bearbeiten</a>
 
+
+        <h2>Anmeldungen</h2>
+        <hr />
+
+        <asp:Repeater ID="anmeldungenRepeater" runat="server">
+            <ItemTemplate>
+                <div style="font-size:80%">
+                    <span style="width:200px;display:inline-block"><a href="mailto:<%# Eval("Email") %>"><%# Eval("Name") %></a></span>
+                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy hh:mm}") %></span>
+                    <span style="width:260px;display:inline-block"><%# Eval("Bemerkung") %></span>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+        <h2>Abmeldungen</h2>
+        <hr />
+
+        <asp:Repeater ID="abmeldungenRepeater" runat="server">
+            <ItemTemplate>
+                <div style="font-size:80%">
+                    <span style="width:200px;display:inline-block"><a href="mailto:<%# Eval("Email") %>"><%# Eval("Name") %></a></span>
+                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy hh:mm}") %></span>
+                    <span style="width:260px;display:inline-block"><%# Eval("Bemerkung") %></span>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+
+
+        <asp:LinkButton Text="Anmeldung exportieren" ID="exportButton" runat="server" style="float:right;" OnClick="exportButton_Click" />
 
     </div>
 

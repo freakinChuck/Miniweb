@@ -1,7 +1,10 @@
 ﻿using MinismuriWeb.Storage;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,14 +32,16 @@ namespace MinismuriWeb.Pages.Anmeldung
 
         public string EventName
         {
-            get 
-            {
-                return string.Empty + (EventHash == "1" ? "Hallo" : string.Empty);
-            }
+            get;
+            set;
         }
+        public DateTime Anmeldeschluss { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+		    emailTextBox.BorderColor = Color.Empty;
+		    nameTextBox.BorderColor = Color.Empty;
+
             var storage = EventStorage.LoadStorage();
             var row = storage.DataSet.Event.FirstOrDefault(r => r.Id == EventId);
 
@@ -48,6 +53,9 @@ namespace MinismuriWeb.Pages.Anmeldung
             }
             else
             {
+                EventName = row.Name;
+                beschreibungText.InnerText = row.Beschreibung;
+                Anmeldeschluss = row.AnmeldefristEnde;
                 anmeldungDiv.Visible = true;
                 nichtExistentDiv.Visible = false;
                 anmeldefristAbgelaufenDiv.Visible = false;
@@ -56,6 +64,69 @@ namespace MinismuriWeb.Pages.Anmeldung
                 {
                     anmeldefristAbgelaufenDiv.Visible = true;
                 }
+            }
+        }
+
+        protected void speichernButton_Click(object sender, EventArgs e)
+        {
+            bool isInvalid = false;
+
+
+            if (!noBot.IsValid())
+            {
+                genericErrorLiteral.Text = "Unser Anti-Spam System hat uns ein verdächtiges Verhalten gemeldet. Falls Sie ein Mensch sind, möchten wir uns für jegliche Unannehmlichkeiten entschuldigen.";
+                isInvalid = true;
+            }
+            
+            string name = nameTextBox.Text;
+            string emailadresse = emailTextBox.Text;
+            string bemerkung = bemerkungTextBox.Text;
+
+            if (!IsValidMail(emailadresse))
+	        {
+                isInvalid = true;
+		        emailTextBox.BorderColor = Color.Red;
+	        }
+
+            if (string.IsNullOrWhiteSpace(name))
+	        {
+		        isInvalid = true;
+		        nameTextBox.BorderColor = Color.Red;
+	        }
+
+            if (isInvalid)
+	        {
+		        return;
+	        }
+
+            EventStorage storage = EventStorage.LoadStorage();
+            var row = storage.DataSet.Anmeldung.NewAnmeldungRow();
+            row.Id = Guid.NewGuid().ToString();
+            row.EventId = EventId;
+            row.IstAnmeldung = anmeldungRadioButton.Checked;
+            row.Emailadresse = emailadresse;
+            row.Name = name;
+            row.Bemerkung = bemerkung;
+            row.Zeitpunkt = DateTime.Now;
+            storage.DataSet.Anmeldung.AddAnmeldungRow(row);
+            storage.Save();
+
+            //TODO: Bestätigungsmail
+
+            Server.Transfer("Success.aspx");
+        }
+
+        public bool IsValidMail(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
             }
         }
     }

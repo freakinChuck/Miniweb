@@ -741,6 +741,10 @@ namespace MinismuriWeb.Storage {
             
             private global::System.Data.DataColumn columnEmailadresse;
             
+            private global::System.Data.DataColumn columnZeitpunkt;
+            
+            private static System.DateTime columnZeitpunkt_defaultValue = global::System.DateTime.Parse("2000-01-01T00:00:00");
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public AnmeldungDataTable() {
@@ -824,6 +828,14 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ZeitpunktColumn {
+                get {
+                    return this.columnZeitpunkt;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -859,7 +871,7 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public AnmeldungRow AddAnmeldungRow(string IstAnmeldung, string Name, string Bemerkung, string Id, EventRow parentEventRowByEvent_Anmeldung, string Emailadresse) {
+            public AnmeldungRow AddAnmeldungRow(bool IstAnmeldung, string Name, string Bemerkung, string Id, EventRow parentEventRowByEvent_Anmeldung, string Emailadresse, System.DateTime Zeitpunkt) {
                 AnmeldungRow rowAnmeldungRow = ((AnmeldungRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         IstAnmeldung,
@@ -867,7 +879,8 @@ namespace MinismuriWeb.Storage {
                         Bemerkung,
                         Id,
                         null,
-                        Emailadresse};
+                        Emailadresse,
+                        Zeitpunkt};
                 if ((parentEventRowByEvent_Anmeldung != null)) {
                     columnValuesArray[4] = parentEventRowByEvent_Anmeldung[1];
                 }
@@ -899,12 +912,13 @@ namespace MinismuriWeb.Storage {
                 this.columnId = base.Columns["Id"];
                 this.columnEventId = base.Columns["EventId"];
                 this.columnEmailadresse = base.Columns["Emailadresse"];
+                this.columnZeitpunkt = base.Columns["Zeitpunkt"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnIstAnmeldung = new global::System.Data.DataColumn("IstAnmeldung", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnIstAnmeldung = new global::System.Data.DataColumn("IstAnmeldung", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIstAnmeldung);
                 this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnName);
@@ -916,6 +930,9 @@ namespace MinismuriWeb.Storage {
                 base.Columns.Add(this.columnEventId);
                 this.columnEmailadresse = new global::System.Data.DataColumn("Emailadresse", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEmailadresse);
+                this.columnZeitpunkt = new global::System.Data.DataColumn("Zeitpunkt", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnZeitpunkt);
+                this.columnZeitpunkt.DefaultValue = ((System.DateTime)(AnmeldungDataTable.columnZeitpunkt_defaultValue));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1850,10 +1867,10 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string IstAnmeldung {
+            public bool IstAnmeldung {
                 get {
                     try {
-                        return ((string)(this[this.tableAnmeldung.IstAnmeldungColumn]));
+                        return ((bool)(this[this.tableAnmeldung.IstAnmeldungColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'IstAnmeldung\' in table \'Anmeldung\' is DBNull.", e);
@@ -1946,6 +1963,22 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime Zeitpunkt {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableAnmeldung.ZeitpunktColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Zeitpunkt\' in table \'Anmeldung\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableAnmeldung.ZeitpunktColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public EventRow EventRow {
                 get {
                     return ((EventRow)(this.GetParentRow(this.Table.ParentRelations["Event_Anmeldung"])));
@@ -2025,6 +2058,18 @@ namespace MinismuriWeb.Storage {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetEmailadresseNull() {
                 this[this.tableAnmeldung.EmailadresseColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsZeitpunktNull() {
+                return this.IsNull(this.tableAnmeldung.ZeitpunktColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetZeitpunktNull() {
+                this[this.tableAnmeldung.ZeitpunktColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

@@ -217,3 +217,4 @@ MinismuriWeb/UploadData/*
 MinismuriWeb/Pages/Videos/VideoLibrary/*
 MinismuriWeb/Storage/*.xml
 *.pubxml
+*.config

@@ -10,7 +10,7 @@
         
         .displayLabel
         {
-            width:150px;
+            width:200px;
             display:inline-block;
             margin-bottom:10px; 
             vertical-align:top;
@@ -22,13 +22,13 @@
             display:inline-block;    
             margin-bottom:10px;       
         }
-        .inputBox input, .inputBox textarea
+        .inputBox input:not([type=radio]), .inputBox textarea
         {
             width:100%;
         }
         .inputContainer
         {
-            width:505px;
+            width:555px;
             vertical-align:top;
         }
         
@@ -45,17 +45,31 @@
             padding:10px;
         }
         
+        pre
+        {
+            font-family:inherit;
+            line-height:150%;
+            font-style:italic;
+        }
     
     </style>
 
-    <h1>Anmeldung <%= EventName %></h1>
+    <h1><%= EventName %></h1>
     <hr />
+
+    <pre id="beschreibungText" runat="server"></pre>
 
     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
     </asp:ToolkitScriptManager>
     <%--<asp:ScriptManager runat="server" />--%>    
 
     <asp:NoBot ID="noBot" runat="server" ResponseMinimumDelaySeconds="5" />
+
+    <div class="errorcontainer" <%= string.IsNullOrWhiteSpace(genericErrorLiteral.Text) ? "style=\"display:none\"" : string.Empty %>> 
+        <span>
+            <asp:Literal id="genericErrorLiteral" runat="server" />
+        </span>
+    </div>
 
     <div class="errorcontainer" runat="server" id="nichtExistentDiv"> 
         <span>
@@ -65,15 +79,34 @@
 
     <div class="errorcontainer" runat="server" id="anmeldefristAbgelaufenDiv"> 
         <span>
-            <asp:Literal runat="server" Text="Für den von Ihnen ausgewählten Event ist die Anmeldefrist leider schon abgelaufen." />
+            <asp:Literal ID="Literal1" runat="server" Text="Für den von Ihnen ausgewählten Event ist die Anmeldefrist leider schon abgelaufen." />
+            <br />
+            <asp:Literal runat="server" Text="Es besteht die Möglichkeit, dass bei einer verspäteten Eingabe die Anmeldung nicht mehr berücksichtigt wird." />
         </span>
     </div>
 
     
-    <div id="anmeldungDiv" runat="server">
+    <div id="anmeldungDiv" runat="server" class="inputContainer">
 
-        
+        <span class="displayLabel"></span>
+        <span class="inputBox">
+            <asp:RadioButton ID="anmeldungRadioButton" Text="Anmeldung" runat="server" Checked="true" GroupName="AnAbmeldung" />            
+            <asp:RadioButton ID="abmeldungRadioButton" Text="Abmeldung" runat="server" GroupName="AnAbmeldung" />
+        </span>
+
+        <span class="displayLabel">Name</span>
+        <span class="inputBox"><asp:TextBox ID="nameTextBox" runat="server" /></span>
+
+        <span class="displayLabel">Email</span>
+        <span class="inputBox"><asp:TextBox ID="emailTextBox" runat="server" /></span>
+
+        <span class="displayLabel">Bemerkung</span>
+        <span class="inputBox"><asp:TextBox ID="bemerkungTextBox" runat="server" /></span>
+
+        <asp:LinkButton Text="Absenden" ID="speichernButton" runat="server" style="float:right" OnClick="speichernButton_Click" />
 
     </div>
+
+        <i style="font-size:80%">Anmeldeschluss: <%= string.Format("{0:dd.MM.yyyy}", Anmeldeschluss) %></i>    
 
 </asp:Content>

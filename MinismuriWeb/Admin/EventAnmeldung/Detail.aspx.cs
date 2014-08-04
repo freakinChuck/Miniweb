@@ -66,21 +66,30 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
             displayDiv.Visible = !IsEdit && !IsNew;
             editDiv.Visible = IsEdit || IsNew;
-
-            var storage = EventStorage.LoadStorage();
-            var row = storage.DataSet.Event.FirstOrDefault(r => r.Id == EventId);
-            if (row != null)
+            if (!IsPostBack)
             {
-                Eventname = row.Name;
-                Anmeldeschluss = row.AnmeldefristEnde;
-                Beschreibung = row.Beschreibung;
+                var storage = EventStorage.LoadStorage();
+                var row = storage.DataSet.Event.FirstOrDefault(r => r.Id == EventId);
 
-                if (IsEdit)
+                if (row != null)
                 {
-                    eventNameTextBox.Text = Eventname;
-                    anmeldefristTextBox.Text = Anmeldeschluss.ToShortDateString();
-                    beschreibungTextBox.Text = Beschreibung;
-                }
+                    Eventname = row.Name;
+                    Anmeldeschluss = row.AnmeldefristEnde;
+                    Beschreibung = row.Beschreibung;
+
+                    var antworten = storage.DataSet.Anmeldung.Where(a => a.EventId == EventId).Select(x => new { Name = x.Name, Email = x.Emailadresse, Zeitpunkt = x.Zeitpunkt, Bemerkung = x.Bemerkung, IsAnmeldung = x.IstAnmeldung }).ToList();
+                    anmeldungenRepeater.DataSource = antworten.Where(a => a.IsAnmeldung).OrderByDescending(a => a.Zeitpunkt).ToList();
+                    abmeldungenRepeater.DataSource = antworten.Where(a => !a.IsAnmeldung).OrderByDescending(a => a.Zeitpunkt).ToList();
+                    anmeldungenRepeater.DataBind();
+                    abmeldungenRepeater.DataBind();
+
+                    if (IsEdit)
+                    {
+                        eventNameTextBox.Text = Eventname;
+                        anmeldefristTextBox.Text = Anmeldeschluss.ToShortDateString();
+                        beschreibungTextBox.Text = Beschreibung;
+                    }
+                }   
             }
         }
 
@@ -112,6 +121,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                 row.Beschreibung = beschreibungTextBox.Text;
                 storage.DataSet.Event.AddEventRow(row);
                 storage.Save();
+                Response.Redirect("Default.aspx");
             }
             else
             {
@@ -121,8 +131,8 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                 row.AnmeldefristEnde = anmeldefrist;
                 row.Beschreibung = beschreibungTextBox.Text;
                 storage.Save();
+                Response.Redirect(string.Format("Detail.aspx?Event={0}", EventId));
             }
-            Response.Redirect("Default.aspx");
         }
 
         protected void loeschenLinkButton_Click(object sender, EventArgs e)
@@ -132,6 +142,11 @@ namespace MinismuriWeb.Admin.EventAnmeldung
             storage.DataSet.Event.RemoveEventRow(row);
             storage.Save();
             Response.Redirect("Default.aspx");
+
+        }
+
+        protected void exportButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

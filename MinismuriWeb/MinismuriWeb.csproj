@@ -90,6 +90,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Pages\Aktuelles\Default.aspx" />
     <Content Include="Pages\Anmeldung\Default.aspx" />
+    <Content Include="Pages\Anmeldung\Success.aspx" />
     <Content Include="Pages\Bildergalerie\Default.aspx" />
     <Content Include="Pages\Bildergalerie\Download.aspx" />
     <Content Include="Pages\Bildergalerie\GalerieDisplayer.ascx" />
@@ -289,6 +290,13 @@
     <Compile Include="Pages\Anmeldung\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Anmeldung\Success.aspx.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Anmeldung\Success.aspx.designer.cs">
+      <DependentUpon>Success.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Bildergalerie\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -391,6 +399,9 @@
     </Compile>
     <Compile Include="Storage\StatisticStorage.cs" />
     <Compile Include="Storage\DataStorage.cs" />
+    <Compile Include="Task\ScheduledTask.cs" />
+    <Compile Include="Task\TaskRunStatus.cs" />
+    <Compile Include="Task\TaskSchedulerContainer.cs" />
     <Compile Include="Trial\FileUpload.aspx.cs">
       <DependentUpon>FileUpload.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -443,6 +454,7 @@
       <DependentUpon>NavigationWebUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="_MiscCode\Crypto.cs" />
+    <Compile Include="_MiscCode\Email.cs" />
     <Compile Include="_MiscCode\Time.cs" />
   </ItemGroup>
   <ItemGroup>
