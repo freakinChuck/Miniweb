@@ -27,6 +27,8 @@ namespace MinismuriWeb
             get { return ConfigurationManager.AppSettings["EmailFromAdress"]; }
         }
 
+        public static string Password { get; set; }
+
         /// <summary>
         /// Die Adresse, von der Aus die Email versendet wird
         /// </summary>
@@ -143,7 +145,7 @@ namespace MinismuriWeb
 
 			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["EmailUsername"]))
             {
-				NetworkCredential credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUsername"], ConfigurationManager.AppSettings["EmailPasswort"]);
+				NetworkCredential credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUsername"], Password);
                 client.Credentials = credentials;
             }
 

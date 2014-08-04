@@ -216,7 +216,6 @@ $RECYCLE.BIN/
 MinismuriWeb/UploadData/*
 MinismuriWeb/Pages/Videos/VideoLibrary/*
 MinismuriWeb/Storage/*.xml
+MinismuriWeb/Storage/pass.txt
 *.pubxml
-*.config
 *.xlsx
-*.config

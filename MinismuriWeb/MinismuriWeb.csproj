@@ -105,6 +105,7 @@
     <Content Include="Pages\Kontakt\Default.aspx" />
     <Content Include="Pages\Links\Default.aspx" />
     <Content Include="Pages\Videos\Default.aspx" />
+    <Content Include="Storage\pass.txt" />
     <Content Include="Trial\FileUpload.aspx" />
     <Content Include="Trial\FileUploadIframeContent.aspx" />
     <Content Include="Trial\MasterPageTest.aspx" />
