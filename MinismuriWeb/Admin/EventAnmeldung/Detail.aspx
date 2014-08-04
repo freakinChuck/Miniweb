@@ -102,6 +102,8 @@
 
         <asp:LinkButton Text="Anmeldung exportieren" ID="exportButton" runat="server" style="float:right;" OnClick="exportButton_Click" />
 
+
+        <div style="clear:both"></div>
     </div>
 
     <div class="displayContainer" id="editDiv" runat="server">

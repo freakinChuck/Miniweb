@@ -1,4 +1,5 @@
-﻿using MinismuriWeb.Storage;
+﻿using ExcelExportHelper;
+using MinismuriWeb.Storage;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -66,7 +67,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
             displayDiv.Visible = !IsEdit && !IsNew;
             editDiv.Visible = IsEdit || IsNew;
-            if (!IsPostBack)
+            if (!IsPostBack || !IsEdit)
             {
                 var storage = EventStorage.LoadStorage();
                 var row = storage.DataSet.Event.FirstOrDefault(r => r.Id == EventId);
@@ -147,7 +148,44 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
         protected void exportButton_Click(object sender, EventArgs e)
         {
+            ExcelWorkbook<EventStorageDataSet.AnmeldungRow> workbook = new ExcelWorkbook<EventStorageDataSet.AnmeldungRow>();
+            var anmeldungen = workbook.AddWorksheet("Anmeldungen", r => r.Where(x => x.IstAnmeldung));
+            anmeldungen.AutoAdjustAllColumns = true;
+            anmeldungen.AddColumn("Name", x => x.Name);
+            anmeldungen.AddColumn("Email", x => x.Emailadresse);
+            anmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
+            anmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy hh:mm"));
 
+
+            var abmeldungen = workbook.AddWorksheet("Abmeldungen", r => r.Where(x => !x.IstAnmeldung));
+            abmeldungen.AutoAdjustAllColumns = true;
+            abmeldungen.AddColumn("Name", x => x.Name);
+            abmeldungen.AddColumn("Email", x => x.Emailadresse);
+            abmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
+            abmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy hh:mm"));
+
+
+            var storage = EventStorage.LoadStorage();
+            var export = workbook.Export(storage.DataSet.Anmeldung.Where(a => a.EventId == EventId));
+
+            string file = Server.MapPath(string.Format("~/TemporaryData/{0}.xlsx", Guid.NewGuid()));
+
+            if (!System.IO.Directory.Exists(Server.MapPath("~/TemporaryData/")))
+            {
+                System.IO.Directory.CreateDirectory(Server.MapPath("~/TemporaryData/"));
+            }
+            var stream = new System.IO.FileStream(file, System.IO.FileMode.OpenOrCreate);
+            export.SaveAs(stream);
+            stream.Close();
+            stream.Dispose();
+            //Response.ContentType = "application/pdf";
+            Response.ContentType = "application/vnd.ms-excel";
+
+            Response.AppendHeader("Content-Disposition", "attachment; filename=Export.xlsx");
+
+            Response.TransmitFile(file);
+
+            Response.End();
         }
     }
 }

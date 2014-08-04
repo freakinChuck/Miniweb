@@ -47,6 +47,9 @@
     <Reference Include="AjaxControlToolkit">
       <HintPath>AjaxControlToolkit.Binary.NET4\AjaxControlToolkit.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>DotNetZip\zip-v1.9\Release\Ionic.Zip.dll</HintPath>
     </Reference>
@@ -262,6 +265,11 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Excel\CellFormat.cs" />
+    <Compile Include="Excel\ExcelColumn.cs" />
+    <Compile Include="Excel\ExcelWorkbook.cs" />
+    <Compile Include="Excel\ExcelWorksheet.cs" />
+    <Compile Include="Excel\ExcelWorksheetBase.cs" />
     <Compile Include="FileuploadHandler.ashx.cs">
       <DependentUpon>FileuploadHandler.ashx</DependentUpon>
     </Compile>
@@ -473,6 +481,7 @@
   <ItemGroup>
     <Content Include="FileuploadHandler.ashx" />
     <Content Include="Admin\AdminMaster.master" />
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\ProdLocal.pubxml" />
     <None Include="Properties\PublishProfiles\SOMEE.pubxml" />
     <Content Include="Storage\StatisticDataSet.xsc">
