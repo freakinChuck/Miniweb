@@ -7,8 +7,8 @@
 
     <h1>Anmeldung erfolgreich</h1>
     <hr />
-    Vielen Dank für Ihre Anmeldung.
-    Sie werden in K&uuml;rze ein Bestätigungsemail für Ihre Anmeldung erhalten.
+    Vielen Dank für Ihre Anmeldung / Abmeldung.
+    Sie werden in K&uuml;rze ein Bestätigungsemail erhalten.
     <br />
     <a href="/">Hier zurück zur Startseite.</a>
 

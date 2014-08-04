@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -57,6 +58,10 @@ namespace MinismuriWeb._Global
         private void AddBildergalerieItems(NavigationItem node)
         {
             var storage = Storage.DataStorage.LoadStorage();
+            if (!Directory.Exists(Server.MapPath("~/UploadData/Bildergalerie")))
+            {
+                Directory.CreateDirectory(Server.MapPath("~/UploadData/Bildergalerie"));
+            }
             foreach (var item in new System.IO.DirectoryInfo(Server.MapPath("~/UploadData/Bildergalerie")).GetDirectories().OrderByDescending(d => d.CreationTime))
             {
                 if (storage.DataSet.FreigegebeneGalerien.Any(g => g.Name.ToLower() == item.Name.ToLower()))

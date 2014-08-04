@@ -542,7 +542,7 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public EventRow AddEventRow(string Name, string Id, string Beschreibung, System.DateTime AnmeldefristEnde, string VerantwortlicherEmail, string AbschlussemailGesendet) {
+            public EventRow AddEventRow(string Name, string Id, string Beschreibung, System.DateTime AnmeldefristEnde, string VerantwortlicherEmail, bool AbschlussemailGesendet) {
                 EventRow rowEventRow = ((EventRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Name,
@@ -594,7 +594,7 @@ namespace MinismuriWeb.Storage {
                 base.Columns.Add(this.columnAnmeldefristEnde);
                 this.columnVerantwortlicherEmail = new global::System.Data.DataColumn("VerantwortlicherEmail", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVerantwortlicherEmail);
-                this.columnAbschlussemailGesendet = new global::System.Data.DataColumn("AbschlussemailGesendet", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnAbschlussemailGesendet = new global::System.Data.DataColumn("AbschlussemailGesendet", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAbschlussemailGesendet);
             }
             
@@ -1728,11 +1728,11 @@ namespace MinismuriWeb.Storage {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string VerantwortlicherEmail {
                 get {
-                    try {
-                        return ((string)(this[this.tableEvent.VerantwortlicherEmailColumn]));
+                    if (this.IsVerantwortlicherEmailNull()) {
+                        return string.Empty;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VerantwortlicherEmail\' in table \'Event\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableEvent.VerantwortlicherEmailColumn]));
                     }
                 }
                 set {
@@ -1742,10 +1742,10 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AbschlussemailGesendet {
+            public bool AbschlussemailGesendet {
                 get {
                     try {
-                        return ((string)(this[this.tableEvent.AbschlussemailGesendetColumn]));
+                        return ((bool)(this[this.tableEvent.AbschlussemailGesendetColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'AbschlussemailGesendet\' in table \'Event\' is DBNull.", e);

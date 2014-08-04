@@ -111,13 +111,34 @@ namespace MinismuriWeb.Pages.Anmeldung
             storage.DataSet.Anmeldung.AddAnmeldungRow(row);
             storage.Save();
 
-            //TODO: Bestätigungsmail
+            EmailHelper mail = new EmailHelper(new MailAddress(emailadresse));
+            mail.Subject = string.Format("Bestätigung {0}", EventName);
+            mail.Body = string.Format(@"Guten Tag
+
+Hiermit bestätigen wir Ihre {0} für den Event ""{1}"".
+Name: {2}
+Bemerkung: {3}
+
+Freundliche Grüsse
+Leitungsteam Ministranten Muri
+",                  
+            row.IstAnmeldung ? "Anmeldung" : "Abmeldung",
+            EventName,
+            row.Name,
+            row.Bemerkung
+                );
+
+            mail.Send();
 
             Server.Transfer("Success.aspx");
         }
 
         public bool IsValidMail(string emailaddress)
         {
+            if (string.IsNullOrWhiteSpace(emailaddress))
+            {
+                return false;
+            }
             try
             {
                 MailAddress m = new MailAddress(emailaddress);

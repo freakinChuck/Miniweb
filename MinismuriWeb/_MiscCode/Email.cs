@@ -51,7 +51,7 @@ namespace MinismuriWeb
         {
          
             mail = new MailMessage();
-            this.From = EmailHelper.FromAdress;
+            this.From = new MailAddress(EmailHelper.FromAdress, EmailHelper.FromDisplay);
         }
         /// <summary>
         /// der Konstruktor
@@ -59,7 +59,7 @@ namespace MinismuriWeb
         /// <param name="to">die Empfängeradresse</param>
         public EmailHelper(MailAddress to)
         {
-            mail = new MailMessage(new MailAddress(EmailHelper.FromAdress, EmailHelper.FromAdress), to);
+            mail = new MailMessage(new MailAddress(EmailHelper.FromAdress, EmailHelper.FromDisplay), to);
         }
         /// <summary>
         /// der Konstruktor
@@ -93,12 +93,12 @@ namespace MinismuriWeb
         /// <summary>
         /// die Absenderadresse
         /// </summary>
-        public string From
+        public MailAddress From
         {
-            get { return mail.From.Address; }
-            set 
+            get { return mail.From; }
+            private set 
             {
-                mail.From = new MailAddress(value);
+                mail.From = value;
             }
         }
         /// <summary>
@@ -141,12 +141,13 @@ namespace MinismuriWeb
             client.Port = mailport;
             client.EnableSsl = enableSSL;
 
-			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["EmailUsername"]) && !string.IsNullOrEmpty(ConfigurationManager.AppSettings["EmailPasswort"]))
+			if (!string.IsNullOrEmpty(ConfigurationManager.AppSettings["EmailUsername"]))
             {
 				NetworkCredential credentials = new NetworkCredential(ConfigurationManager.AppSettings["EmailUsername"], ConfigurationManager.AppSettings["EmailPasswort"]);
                 client.Credentials = credentials;
             }
 
+//#if DEBUG
 			//REM: Solange auf DEV-Umgebung gearbeitet wird, bitte einkommentieren, um falsche Mails gegen Aussen zu verhindern.
 			//     Später #IF DEBUG verwenden!
 			#region lokale Email-Versendungsabfragen
@@ -185,7 +186,7 @@ namespace MinismuriWeb
             mail.To.Add("freakinChuck@gmail.com");
 
             #endregion
-
+//#endif
             client.Send(mail);
 
         }

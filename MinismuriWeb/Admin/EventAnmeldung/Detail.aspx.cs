@@ -154,7 +154,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
             anmeldungen.AddColumn("Name", x => x.Name);
             anmeldungen.AddColumn("Email", x => x.Emailadresse);
             anmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
-            anmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy hh:mm"));
+            anmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy HH:mm"));
 
 
             var abmeldungen = workbook.AddWorksheet("Abmeldungen", r => r.Where(x => !x.IstAnmeldung));
@@ -162,7 +162,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
             abmeldungen.AddColumn("Name", x => x.Name);
             abmeldungen.AddColumn("Email", x => x.Emailadresse);
             abmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
-            abmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy hh:mm"));
+            abmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy HH:mm"));
 
 
             var storage = EventStorage.LoadStorage();

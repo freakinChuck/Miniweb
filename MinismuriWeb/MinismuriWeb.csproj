@@ -482,6 +482,7 @@
     <Content Include="FileuploadHandler.ashx" />
     <Content Include="Admin\AdminMaster.master" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\PreviewWeb.pubxml" />
     <None Include="Properties\PublishProfiles\ProdLocal.pubxml" />
     <None Include="Properties\PublishProfiles\SOMEE.pubxml" />
     <Content Include="Storage\StatisticDataSet.xsc">

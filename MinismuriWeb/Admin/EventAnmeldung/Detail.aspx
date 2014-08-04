@@ -80,7 +80,7 @@
             <ItemTemplate>
                 <div style="font-size:80%">
                     <span style="width:200px;display:inline-block"><a href="mailto:<%# Eval("Email") %>"><%# Eval("Name") %></a></span>
-                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy hh:mm}") %></span>
+                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy HH:mm}") %></span>
                     <span style="width:260px;display:inline-block"><%# Eval("Bemerkung") %></span>
                 </div>
             </ItemTemplate>
@@ -93,7 +93,7 @@
             <ItemTemplate>
                 <div style="font-size:80%">
                     <span style="width:200px;display:inline-block"><a href="mailto:<%# Eval("Email") %>"><%# Eval("Name") %></a></span>
-                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy hh:mm}") %></span>
+                    <span style="width:120px;display:inline-block"><%# Eval("Zeitpunkt", "{0:dd.MM.yyyy HH:mm}") %></span>
                     <span style="width:260px;display:inline-block"><%# Eval("Bemerkung") %></span>
                 </div>
             </ItemTemplate>
