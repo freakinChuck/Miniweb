@@ -22,7 +22,7 @@ namespace MinismuriWeb
         {
             MinismuriWeb.Storage.StatisticStorage.MapPath = HttpContext.Current.Server.MapPath;
             MinismuriWeb.Storage.EventStorage.MapPath = HttpContext.Current.Server.MapPath;
-            EmailHelper.Password = System.IO.File.ReadAllText(Server.MapPath("~/Storage.pass.txt"));
+            EmailHelper.Password = System.IO.File.ReadAllText(Server.MapPath("~/Storage/pass.txt"));
 
             try
             {

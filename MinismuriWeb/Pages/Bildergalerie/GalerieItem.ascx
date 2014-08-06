@@ -3,7 +3,7 @@
 <div class="ImageGalerieItem">
    
     <a class="ImageLink" href="Default.aspx?Galerie=<%= GalerieName %>">
-        <img src="<%= string.Format("{0}/{1}/{2}", GalerieRootFolder, GalerieName, GalerieDisplayItemName) %>" alt="<%= GalerieName %>" />
+        <img src="<%= string.Format("{0}/{1}/thumb/{2}", GalerieRootFolder, GalerieName, GalerieDisplayItemName) %>" alt="<%= GalerieName %>" />
     </a>
     
     <a href="Default.aspx?Galerie=<%= GalerieName %>">

@@ -85,6 +85,15 @@ namespace MinismuriWeb.Admin.EventAnmeldung {
         protected global::System.Web.UI.WebControls.TextBox anmeldefristTextBox;
         
         /// <summary>
+        /// verantwortlicherTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox verantwortlicherTextBox;
+        
+        /// <summary>
         /// beschreibungTextBox control.
         /// </summary>
         /// <remarks>

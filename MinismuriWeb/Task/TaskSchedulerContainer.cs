@@ -18,6 +18,7 @@ namespace MinismuriWeb
         static TaskSchedulerContainer()
         {
             Tasks = new List<ScheduledTask>();
+            Tasks.Add(AnmeldungslisteVersendenTask.Instance);
         }
         /// <summary>
         /// die maximale Zeit zwischen den Taskabläufen

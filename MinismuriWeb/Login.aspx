@@ -58,27 +58,28 @@
         </span>
     </div>
 
+    <asp:Panel runat="server" DefaultButton="loginLinkButton">
 
-    <div class="inputContainer">
+        <div class="inputContainer">
 
-        <span class="displayLabel">
-            Benutzername
-        </span>
-        <span class="inputBox">
-            <asp:TextBox ID="benutzernameTextBox" runat="server" />
-        </span>
+            <span class="displayLabel">
+                Benutzername
+            </span>
+            <span class="inputBox">
+                <asp:TextBox ID="benutzernameTextBox" runat="server" />
+            </span>
 
-        <span class="displayLabel">
-            Passwort
-        </span>
-        <span class="inputBox">
-            <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password" />
-        </span>
+            <span class="displayLabel">
+                Passwort
+            </span>
+            <span class="inputBox">
+                <asp:TextBox ID="passwordTextBox" runat="server" TextMode="Password" />
+            </span>
 
-        <asp:LinkButton Text="Login" runat="server" 
-            style="float:right;" ID="loginLinkButton" OnClick="loginLinkButton_Click" />
+            <asp:LinkButton Text="Login" runat="server" 
+                style="float:right;" ID="loginLinkButton" OnClick="loginLinkButton_Click" />
 
-        <div style="clear:both"> </div>
-    </div>
-
+            <div style="clear:both"> </div>
+        </div>
+    </asp:Panel>
 </asp:Content>

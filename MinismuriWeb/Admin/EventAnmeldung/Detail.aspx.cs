@@ -48,6 +48,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
         public DateTime Anmeldeschluss { get; set; }
         public string Beschreibung { get; set; }
+        public string VerantwortlicherMail { get; set; }
 
         public string LinkUrl
         {
@@ -64,6 +65,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
         {
             eventNameTextBox.BorderColor = Color.Empty;
             anmeldefristTextBox.BorderColor = Color.Empty;
+            verantwortlicherTextBox.BorderColor = Color.Empty;
 
             displayDiv.Visible = !IsEdit && !IsNew;
             editDiv.Visible = IsEdit || IsNew;
@@ -77,6 +79,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                     Eventname = row.Name;
                     Anmeldeschluss = row.AnmeldefristEnde;
                     Beschreibung = row.Beschreibung;
+                    VerantwortlicherMail = row.VerantwortlicherEmail;
 
                     var antworten = storage.DataSet.Anmeldung.Where(a => a.EventId == EventId).Select(x => new { Name = x.Name, Email = x.Emailadresse, Zeitpunkt = x.Zeitpunkt, Bemerkung = x.Bemerkung, IsAnmeldung = x.IstAnmeldung }).ToList();
                     anmeldungenRepeater.DataSource = antworten.Where(a => a.IsAnmeldung).OrderByDescending(a => a.Zeitpunkt).ToList();
@@ -96,11 +99,24 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
         protected void speichernButton_Click(object sender, EventArgs e)
         {
+            bool isInvalid = false;
             DateTime anmeldefrist = DateTime.Now;
             if (string.IsNullOrWhiteSpace(eventNameTextBox.Text))
             {
                 eventNameTextBox.BorderColor = System.Drawing.Color.Red;
+                isInvalid = false;
             }
+
+            try
+            {
+                new System.Net.Mail.MailAddress(verantwortlicherTextBox.Text);
+            }
+            catch
+            {
+                verantwortlicherTextBox.BorderColor = Color.Red;
+                isInvalid = true;
+            }
+
             try
             {
                 anmeldefrist = DateTime.Parse(anmeldefristTextBox.Text);
@@ -108,6 +124,12 @@ namespace MinismuriWeb.Admin.EventAnmeldung
             catch
             {
                 anmeldefristTextBox.BorderColor = Color.Red;
+                isInvalid = true;
+            }
+
+
+            if (isInvalid)
+            {
                 return;
             }
 
@@ -120,6 +142,8 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                 row.Name = eventNameTextBox.Text;
                 row.AnmeldefristEnde = anmeldefrist;
                 row.Beschreibung = beschreibungTextBox.Text;
+                row.VerantwortlicherEmail = verantwortlicherTextBox.Text;
+                row.AbschlussemailGesendet = false;
                 storage.DataSet.Event.AddEventRow(row);
                 storage.Save();
                 Response.Redirect("Default.aspx");
@@ -131,6 +155,7 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                 row.Name = eventNameTextBox.Text;
                 row.AnmeldefristEnde = anmeldefrist;
                 row.Beschreibung = beschreibungTextBox.Text;
+                row.VerantwortlicherEmail = verantwortlicherTextBox.Text;
                 storage.Save();
                 Response.Redirect(string.Format("Detail.aspx?Event={0}", EventId));
             }
@@ -148,40 +173,23 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
         protected void exportButton_Click(object sender, EventArgs e)
         {
-            ExcelWorkbook<EventStorageDataSet.AnmeldungRow> workbook = new ExcelWorkbook<EventStorageDataSet.AnmeldungRow>();
-            var anmeldungen = workbook.AddWorksheet("Anmeldungen", r => r.Where(x => x.IstAnmeldung));
-            anmeldungen.AutoAdjustAllColumns = true;
-            anmeldungen.AddColumn("Name", x => x.Name);
-            anmeldungen.AddColumn("Email", x => x.Emailadresse);
-            anmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
-            anmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy HH:mm"));
-
-
-            var abmeldungen = workbook.AddWorksheet("Abmeldungen", r => r.Where(x => !x.IstAnmeldung));
-            abmeldungen.AutoAdjustAllColumns = true;
-            abmeldungen.AddColumn("Name", x => x.Name);
-            abmeldungen.AddColumn("Email", x => x.Emailadresse);
-            abmeldungen.AddColumn("Bemerkung", x => x.Bemerkung);
-            abmeldungen.AddColumn("AnmeldeZeitpunkt", x => x.Zeitpunkt.ToString("dd.MM.yyyy HH:mm"));
-
-
-            var storage = EventStorage.LoadStorage();
-            var export = workbook.Export(storage.DataSet.Anmeldung.Where(a => a.EventId == EventId));
-
             string file = Server.MapPath(string.Format("~/TemporaryData/{0}.xlsx", Guid.NewGuid()));
-
             if (!System.IO.Directory.Exists(Server.MapPath("~/TemporaryData/")))
             {
                 System.IO.Directory.CreateDirectory(Server.MapPath("~/TemporaryData/"));
             }
+
             var stream = new System.IO.FileStream(file, System.IO.FileMode.OpenOrCreate);
-            export.SaveAs(stream);
+
+            ExcelLibrary.Anmeldungsliste(EventId, stream);
             stream.Close();
             stream.Dispose();
             //Response.ContentType = "application/pdf";
             Response.ContentType = "application/vnd.ms-excel";
 
-            Response.AppendHeader("Content-Disposition", "attachment; filename=Export.xlsx");
+            string name = Storage.EventStorage.LoadStorage().DataSet.Event.First(ev => ev.Id == EventId).Name;
+
+            Response.AppendHeader("Content-Disposition", string.Format("attachment; filename=\"Anmeldestand {1} {0:yyyy-MM-dd_HH-mm}.xlsx\"", DateTime.Now, name));
 
             Response.TransmitFile(file);
 

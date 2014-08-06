@@ -407,6 +407,7 @@
     </Compile>
     <Compile Include="Storage\StatisticStorage.cs" />
     <Compile Include="Storage\DataStorage.cs" />
+    <Compile Include="Task\AnmeldungslisteVersendenTask.cs" />
     <Compile Include="Task\ScheduledTask.cs" />
     <Compile Include="Task\TaskRunStatus.cs" />
     <Compile Include="Task\TaskSchedulerContainer.cs" />
@@ -463,6 +464,7 @@
     </Compile>
     <Compile Include="_MiscCode\Crypto.cs" />
     <Compile Include="_MiscCode\Email.cs" />
+    <Compile Include="_MiscCode\ExcelLibrary.cs" />
     <Compile Include="_MiscCode\Time.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -482,7 +484,7 @@
     <Content Include="FileuploadHandler.ashx" />
     <Content Include="Admin\AdminMaster.master" />
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\PreviewWeb.pubxml" />
+    <None Include="Properties\PublishProfiles\Preview Web.pubxml" />
     <None Include="Properties\PublishProfiles\ProdLocal.pubxml" />
     <None Include="Properties\PublishProfiles\SOMEE.pubxml" />
     <Content Include="Storage\StatisticDataSet.xsc">
@@ -530,10 +532,34 @@
     <None Include="Storage\DataStorageDataSet.xss">
       <DependentUpon>DataStorageDataSet.xsd</DependentUpon>
     </None>
+    <None Include="Web.Preview.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Productive.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Preview|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Productive|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

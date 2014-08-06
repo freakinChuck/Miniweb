@@ -62,6 +62,9 @@
         <span class="displayLabel">Anmeldefrist</span>
         <span class="displayContent"><%= string.Format("{0:dd.MM.yyyy}", Anmeldeschluss) %></span>
 
+        <span class="displayLabel">Email Verantwortl.</span>
+        <span class="displayContent"><%= VerantwortlicherMail %></span>
+
         <span class="displayLabel">Emaillink</span>
         <span class="displayContent"><a href="<%= LinkUrl %>"><%= LinkUrl %></a></span>
 
@@ -110,10 +113,15 @@
         
         <span class="displayLabel">Event</span>
         <span class="displayContent"><asp:TextBox ID="eventNameTextBox" runat="server" /></span>
-
         
+
+
         <span class="displayLabel">Anmeldefrist</span>
-        <span class="displayContent"><asp:TextBox ID="anmeldefristTextBox" runat="server" /></span>
+        <span class="displayContent"><asp:TextBox ID="anmeldefristTextBox" runat="server" /></span>        
+        
+        <span class="displayLabel">Email Verantwortl.</span>
+        <span class="displayContent"><asp:TextBox ID="verantwortlicherTextBox" runat="server" /></span>
+
 
         <span class="displayLabel">Beschreibung</span>
         <span class="displayContent"><asp:TextBox ID="beschreibungTextBox" TextMode="MultiLine" Rows="10" runat="server" /></span>
