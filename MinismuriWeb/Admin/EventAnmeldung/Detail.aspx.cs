@@ -63,6 +63,11 @@ namespace MinismuriWeb.Admin.EventAnmeldung
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadZusatzinformation();                
+            }
+
             eventNameTextBox.BorderColor = Color.Empty;
             anmeldefristTextBox.BorderColor = Color.Empty;
             verantwortlicherTextBox.BorderColor = Color.Empty;
@@ -95,6 +100,40 @@ namespace MinismuriWeb.Admin.EventAnmeldung
                     }
                 }   
             }
+        }
+
+        private void LoadZusatzinformation()
+        {
+            var storage = EventStorage.LoadStorage();
+            var dataTmp = storage.DataSet.Zusatzinformation
+                .Where(z => z.EventId == EventId)
+                .OrderBy(z => z.Ordnungszahl).ToList();
+            var data = dataTmp.Select(z =>
+                    new
+                    {
+                        Feldname = z.Feldname,
+                        Typ = GetText((EventStorage.Antworttyp)z.Typ),
+                        Id = z.Id,
+                        Ordnungzahl = z.Ordnungszahl,
+                        IsFirst = z.Ordnungszahl == dataTmp.Min(x => x.Ordnungszahl),
+                        IsLast = z.Ordnungszahl == dataTmp.Max(x => x.Ordnungszahl)
+                    }
+                 )
+                .ToList();
+            zusatzfelderRepeater.DataSource = data;
+            zusatzfelderRepeater.DataBind();
+        }
+
+        private string GetText(EventStorage.Antworttyp antworttyp)
+        {
+            switch (antworttyp)
+            {
+                case EventStorage.Antworttyp.Text:
+                    return "Freitext";
+                case EventStorage.Antworttyp.Checkbox:
+                    return "Ja / Nein";
+            }
+            return string.Empty;
         }
 
         protected void speichernButton_Click(object sender, EventArgs e)
@@ -194,6 +233,76 @@ namespace MinismuriWeb.Admin.EventAnmeldung
             Response.TransmitFile(file);
 
             Response.End();
+        }
+
+        protected void onceUpImageButton_Command(object sender, CommandEventArgs e)
+        {
+            string id = e.CommandArgument.ToString();
+            var storage = EventStorage.LoadStorage();
+            var row = storage.DataSet.Zusatzinformation.Single(r => r.Id == id);
+            var rowToChange = storage.DataSet.Zusatzinformation
+                .Where(r => r.EventId == EventId)
+                .OrderByDescending(r => r.Ordnungszahl)
+                .First(r => r.Ordnungszahl < row.Ordnungszahl);
+            int tmp = row.Ordnungszahl;
+            row.Ordnungszahl = rowToChange.Ordnungszahl;
+            rowToChange.Ordnungszahl = tmp;
+            storage.Save();
+
+            LoadZusatzinformation();
+        }
+
+        protected void onceDownImageButton_Command(object sender, CommandEventArgs e)
+        {
+            string id = e.CommandArgument.ToString();
+            var storage = EventStorage.LoadStorage();
+            var row = storage.DataSet.Zusatzinformation.Single(r => r.Id == id);
+            var rowToChange = storage.DataSet.Zusatzinformation
+                .Where(r => r.EventId == EventId)
+                .OrderBy(r => r.Ordnungszahl)
+                .First(r => r.Ordnungszahl > row.Ordnungszahl);
+            int tmp = row.Ordnungszahl;
+            row.Ordnungszahl = rowToChange.Ordnungszahl;
+            rowToChange.Ordnungszahl = tmp;
+            storage.Save();
+
+            LoadZusatzinformation();
+        }
+
+        protected void deleteImageButton_Command(object sender, CommandEventArgs e)
+        {
+            string id = e.CommandArgument.ToString();
+            var storage = EventStorage.LoadStorage();
+            var row = storage.DataSet.Zusatzinformation.Single(r => r.Id == id);
+            storage.DataSet.Zusatzinformation.RemoveZusatzinformationRow(row);
+            storage.Save();
+
+            LoadZusatzinformation();
+        }
+
+        protected void speichernLinkButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(feldnameTextBox.Text))
+            {
+                return;
+            }
+            var storage = EventStorage.LoadStorage();
+
+            var row = storage.DataSet.Zusatzinformation.NewZusatzinformationRow();
+
+            row.EventId = EventId;
+            row.Feldname = feldnameTextBox.Text;
+            row.Id = Guid.NewGuid().ToString();
+            row.Ordnungszahl = 0;
+            try { row.Ordnungszahl = storage.DataSet.Zusatzinformation.Where(ev => ev.EventId == EventId).Max(x => x.Ordnungszahl) + 1; }
+            catch { }
+            row.Typ = int.Parse(feldtypDropDownList.SelectedValue);
+
+            storage.DataSet.Zusatzinformation.AddZusatzinformationRow(row);
+            storage.Save();
+
+            feldnameTextBox.Text = string.Empty;
+            LoadZusatzinformation();
         }
     }
 }

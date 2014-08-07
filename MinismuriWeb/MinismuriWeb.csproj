@@ -86,6 +86,7 @@
     <Content Include="Admin\Video\Default.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Images\delete.png" />
     <Content Include="Images\down.png" />
     <Content Include="Images\up.png" />
     <Content Include="Images\HomeImage.jpg" />

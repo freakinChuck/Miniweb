@@ -42,6 +42,21 @@
             line-height:150%;
         }
 
+        #Zusatzinformationtable td, 
+        #Zusatzinformationtable th 
+        {
+            border-bottom: 1px dashed #ddd !important;
+            font-size:80%;
+        }
+        #Zusatzinformationtable th 
+        {
+            text-align:left;
+        }
+        #Zusatzinformationtable input, #Zusatzinformationtable select
+        {
+            width:90%;
+        }
+
     </style>
 
 
@@ -75,6 +90,70 @@
         <asp:LinkButton Text="Löschen" runat="server" ID="loeschenLinkButton" OnClick="loeschenLinkButton_Click" style="float:right;" OnClientClick="return confirm('Sind sie sicher, dass sie diesen Event löschen möchten?')" />
         <a href="Detail.aspx?Event=<%=EventId %>&Edit=True" style="float:right; margin-right:10px">Bearbeiten</a>
 
+        <h2>Zusatzinformationen</h2>
+        <hr />
+
+
+        <table style="width:600px;" id="Zusatzinformationtable">
+            <tr>
+                <th style="width:300px;">Feldname</th>
+                <th style="width:150px;">Typ</th>
+                <th style="width:150px;">&nbsp;</th>
+            </tr>
+
+            <asp:Repeater ID="zusatzfelderRepeater" runat="server">
+                <ItemTemplate>
+                    <tr>
+                        <td><%# Eval("Feldname") %></td>
+                        <td><%# Eval("Typ") %></td>
+                        <td>
+                           <span style="width:30px; display:inline-block; text-align:center">
+                                <asp:ImageButton ImageUrl="~/Images/down.png"  runat="server"
+                                    Id="onceDownImageButton" 
+                                    CommandArgument='<%# Eval("Id") %>' 
+                                    OnCommand="onceDownImageButton_Command"
+                                    Visible='<%# !(bool)Eval("IsLast") %>'
+                                    Width="20px" />
+                                &nbsp;
+                            </span>
+                            <span style="width:30px; display:inline-block; text-align:center">
+                                <asp:ImageButton ImageUrl="~/Images/up.png"  runat="server"
+                                    Id="onceUpImageButton" 
+                                    CommandArgument='<%# Eval("Id") %>' 
+                                    OnCommand="onceUpImageButton_Command"
+                                    Visible='<%# !(bool)Eval("IsFirst") %>'
+                                    Width="20px" />
+                                &nbsp;
+                            </span>
+                            <span style="width:30px; display:inline-block; text-align:center">
+                                <asp:ImageButton ImageUrl="~/Images/delete.png"  runat="server"
+                                    Id="deleteImageButton" 
+                                    CommandArgument='<%# Eval("Id") %>' 
+                                    OnCommand="deleteImageButton_Command"
+                                    Width="15px"
+                                    OnClientClick="return confirm('Wollen Sie diese Zusatzinformation wirklich löschen?')" />
+                                &nbsp;
+                            </span>
+                        </td>                        
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
+
+            <tr>
+                <td>
+                    <asp:TextBox ID="feldnameTextBox" runat="server" />
+                </td>
+                <td>
+                    <asp:DropDownList ID="feldtypDropDownList" runat="server">
+                        <asp:ListItem Text="Freitext" Value="0" Selected="True" />
+                        <asp:ListItem Text="Ja / Nein" Value="1" />
+                    </asp:DropDownList>
+                </td>
+                <td>
+                    <asp:LinkButton ID="speichernLinkButton" Text="Hinzufügen" runat="server" OnClick="speichernLinkButton_Click" />
+                </td>
+            </tr>
+        </table>
 
         <h2>Anmeldungen</h2>
         <hr />

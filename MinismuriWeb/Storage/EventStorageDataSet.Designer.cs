@@ -1074,6 +1074,8 @@ namespace MinismuriWeb.Storage {
             
             private global::System.Data.DataColumn columnTyp;
             
+            private global::System.Data.DataColumn columnOrdnungszahl;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public ZusatzinformationDataTable() {
@@ -1141,6 +1143,14 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn OrdnungszahlColumn {
+                get {
+                    return this.columnOrdnungszahl;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1176,13 +1186,14 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ZusatzinformationRow AddZusatzinformationRow(string Id, EventRow parentEventRowByEvent_Zusatzinformation, string Feldname, string Typ) {
+            public ZusatzinformationRow AddZusatzinformationRow(string Id, EventRow parentEventRowByEvent_Zusatzinformation, string Feldname, int Typ, int Ordnungszahl) {
                 ZusatzinformationRow rowZusatzinformationRow = ((ZusatzinformationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
                         null,
                         Feldname,
-                        Typ};
+                        Typ,
+                        Ordnungszahl};
                 if ((parentEventRowByEvent_Zusatzinformation != null)) {
                     columnValuesArray[1] = parentEventRowByEvent_Zusatzinformation[1];
                 }
@@ -1212,6 +1223,7 @@ namespace MinismuriWeb.Storage {
                 this.columnEventId = base.Columns["EventId"];
                 this.columnFeldname = base.Columns["Feldname"];
                 this.columnTyp = base.Columns["Typ"];
+                this.columnOrdnungszahl = base.Columns["Ordnungszahl"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1223,8 +1235,12 @@ namespace MinismuriWeb.Storage {
                 base.Columns.Add(this.columnEventId);
                 this.columnFeldname = new global::System.Data.DataColumn("Feldname", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFeldname);
-                this.columnTyp = new global::System.Data.DataColumn("Typ", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnTyp = new global::System.Data.DataColumn("Typ", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTyp);
+                this.columnOrdnungszahl = new global::System.Data.DataColumn("Ordnungszahl", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrdnungszahl);
+                this.columnTyp.DefaultValue = ((int)(0));
+                this.columnOrdnungszahl.DefaultValue = ((int)(0));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2148,10 +2164,10 @@ namespace MinismuriWeb.Storage {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Typ {
+            public int Typ {
                 get {
                     try {
-                        return ((string)(this[this.tableZusatzinformation.TypColumn]));
+                        return ((int)(this[this.tableZusatzinformation.TypColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'Typ\' in table \'Zusatzinformation\' is DBNull.", e);
@@ -2159,6 +2175,22 @@ namespace MinismuriWeb.Storage {
                 }
                 set {
                     this[this.tableZusatzinformation.TypColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int Ordnungszahl {
+                get {
+                    try {
+                        return ((int)(this[this.tableZusatzinformation.OrdnungszahlColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Ordnungszahl\' in table \'Zusatzinformation\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableZusatzinformation.OrdnungszahlColumn] = value;
                 }
             }
             
@@ -2219,6 +2251,18 @@ namespace MinismuriWeb.Storage {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTypNull() {
                 this[this.tableZusatzinformation.TypColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOrdnungszahlNull() {
+                return this.IsNull(this.tableZusatzinformation.OrdnungszahlColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOrdnungszahlNull() {
+                this[this.tableZusatzinformation.OrdnungszahlColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

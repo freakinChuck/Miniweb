@@ -100,6 +100,19 @@
         <span class="displayLabel">Email</span>
         <span class="inputBox"><asp:TextBox ID="emailTextBox" runat="server" /></span>
 
+        <asp:Repeater ID="zusatzInfoRepeater" runat="server">
+            <ItemTemplate>
+                <span class="displayLabel"><%# Eval("Feldname") %></span>
+                <span class="inputBox">
+                    <asp:HiddenField ID="feldnameHiddenField" runat="server" Value='<%# Eval("Feldname") %>' />
+                    <asp:HiddenField ID="idHiddenField" runat="server" Value='<%# Eval("Id") %>' />
+                    <asp:HiddenField ID="typHiddenField" runat="server" Value='<%# Eval("Typ") %>' />
+                    <asp:TextBox ID="freitextTextField" runat="server" Visible='<%# (int)Eval("Typ") == 0 %>' />
+                    <asp:CheckBox ID="janeinCheckBox" runat="server" Visible='<%# (int)Eval("Typ") == 1 %>' />
+                </span>
+            </ItemTemplate>
+        </asp:Repeater>
+
         <span class="displayLabel">Bemerkung</span>
         <span class="inputBox"><asp:TextBox ID="bemerkungTextBox" runat="server" /></span>
 

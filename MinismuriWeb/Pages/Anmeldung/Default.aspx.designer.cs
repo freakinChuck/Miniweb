@@ -121,6 +121,15 @@ namespace MinismuriWeb.Pages.Anmeldung {
         protected global::System.Web.UI.WebControls.TextBox emailTextBox;
         
         /// <summary>
+        /// zusatzInfoRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater zusatzInfoRepeater;
+        
+        /// <summary>
         /// bemerkungTextBox control.
         /// </summary>
         /// <remarks>
