@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Event" ZOrder="8" X="70" Y="70" Height="143" Width="161" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
     <Shape ID="DesignTable:Anmeldung" ZOrder="1" X="290" Y="70" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
-    <Shape ID="DesignTable:Zusatzinformation" ZOrder="7" X="290" Y="264" Height="105" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="86" />
+    <Shape ID="DesignTable:Zusatzinformation" ZOrder="7" X="290" Y="264" Height="124" Width="173" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
     <Shape ID="DesignTable:Zusatzantwort" ZOrder="6" X="510" Y="70" Height="105" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="86" />
   </Shapes>
   <Connectors>

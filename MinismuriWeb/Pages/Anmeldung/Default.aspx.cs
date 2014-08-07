@@ -39,6 +39,11 @@ namespace MinismuriWeb.Pages.Anmeldung
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                LoadZusazuinfoRepeater();    
+            }
+
 		    emailTextBox.BorderColor = Color.Empty;
 		    nameTextBox.BorderColor = Color.Empty;
 
@@ -65,6 +70,14 @@ namespace MinismuriWeb.Pages.Anmeldung
                     anmeldefristAbgelaufenDiv.Visible = true;
                 }
             }
+        }
+
+        private void LoadZusazuinfoRepeater()
+        {
+            var storage = EventStorage.LoadStorage();
+            var data = storage.DataSet.Zusatzinformation.Where(z => z.EventId == EventId).OrderBy(e => e.Ordnungszahl).Select(e => new { Feldname = e.Feldname, Typ = e.Typ, Id = e.Id }).ToList();
+            zusatzInfoRepeater.DataSource = data;
+            zusatzInfoRepeater.DataBind();
         }
 
         protected void speichernButton_Click(object sender, EventArgs e)
@@ -109,7 +122,38 @@ namespace MinismuriWeb.Pages.Anmeldung
             row.Bemerkung = bemerkung;
             row.Zeitpunkt = DateTime.Now;
             storage.DataSet.Anmeldung.AddAnmeldungRow(row);
+
+            List<KeyValuePair<string, string>> zusatzinfo = new List<KeyValuePair<string, string>>();
+
+            foreach (RepeaterItem item in zusatzInfoRepeater.Items)
+            {
+                string id = ((HiddenField)item.FindControl("idHiddenField")).Value;
+                string feldname = ((HiddenField)item.FindControl("feldnameHiddenField")).Value;
+                int typ = int.Parse(((HiddenField)item.FindControl("typHiddenField")).Value);
+                string text = ((TextBox)item.FindControl("freitextTextField")).Text;
+                bool check = ((CheckBox)item.FindControl("janeinCheckBox")).Checked;
+
+                var infoRow = storage.DataSet.Zusatzantwort.NewZusatzantwortRow();
+
+                string antwort = typ == (int)EventStorage.Antworttyp.Text ? text : check ? "Ja" : "Nein";
+                infoRow.AnmeldungId = row.Id;
+                infoRow.Antwort = antwort;
+                infoRow.Id = Guid.NewGuid().ToString();
+                infoRow.ZusatzinfoId = id;
+
+                zusatzinfo.Add(new KeyValuePair<string, string>(feldname, antwort));
+
+                storage.DataSet.Zusatzantwort.AddZusatzantwortRow(infoRow);
+            }
+
             storage.Save();
+
+            string zusatzinfoText = string.Empty;
+
+            foreach (var item in zusatzinfo)
+	        {
+		        zusatzinfoText = string.Format("{0}{1}: {2}\n", zusatzinfoText, item.Key, item.Value);
+	        }
 
             EmailHelper mail = new EmailHelper(new MailAddress(emailadresse));
             mail.Subject = string.Format("Bestätigung {0}", EventName);
@@ -117,7 +161,7 @@ namespace MinismuriWeb.Pages.Anmeldung
 
 Hiermit bestätigen wir Ihre {0} für den Event ""{1}"".
 Name: {2}
-Bemerkung: {3}
+{4}Bemerkung: {3}
 
 Freundliche Grüsse
 Leitungsteam Ministranten Muri
@@ -125,7 +169,8 @@ Leitungsteam Ministranten Muri
             row.IstAnmeldung ? "Anmeldung" : "Abmeldung",
             EventName,
             row.Name,
-            row.Bemerkung
+            row.Bemerkung,
+            zusatzinfoText
                 );
 
             mail.Send();

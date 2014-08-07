@@ -34,5 +34,12 @@ namespace MinismuriWeb.Storage
         {
             DataSet.WriteXml(MapPath(storageFilePath));
         }
+
+        public enum Antworttyp
+        {
+            Text = 0, 
+            Checkbox = 1
+        }
+
     }
 }
