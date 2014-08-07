@@ -70,6 +70,8 @@
             <asp:FontSizeSelector />
             <asp:InsertHorizontalRule />
             <asp:InsertImage />
+            <asp:CreateLink />
+            <asp:Unlink />
         </Toolbar>
     </asp:HtmlEditorExtender>
 
