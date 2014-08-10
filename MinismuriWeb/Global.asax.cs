@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Reflection;
 using System.Threading;
 using System.Web;
 using System.Web.Caching;
@@ -24,16 +25,10 @@ namespace MinismuriWeb
             MinismuriWeb.Storage.EventStorage.MapPath = HttpContext.Current.Server.MapPath;
             EmailHelper.Password = System.IO.File.ReadAllText(Server.MapPath("~/Storage/pass.txt"));
 
-            try
-            {
                 Application[CACHE_KEY] = HttpContext.Current.Cache;
                 RegisterTaskCacheEntry();
                 RegisterStayAliveCacheEntry();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+
         }
 
         protected void Session_Start(object sender, EventArgs e)
@@ -54,16 +49,22 @@ namespace MinismuriWeb
 
         private void RegisterStayAliveCacheEntry()
         {
+                TimeSpan removeTime = TimeSpan.FromMinutes(int.Parse(ConfigurationManager.AppSettings["AnzahlMinutenFuerStayAliveTask"]));
+                Cache cache = (Cache)Application[CACHE_KEY];
+                if (cache[STAYALIVE_CACHE_ENTRY_KEY] != null)
+                {
+                    cache.Remove(STAYALIVE_CACHE_ENTRY_KEY);
+                }
+                //string txt = string.Empty;
+                //foreach (var item in cache)
+                //{
+                //    txt += (GetCacheUtcExpiryDateTime(((System.Collections.DictionaryEntry)item).Key.ToString()).ToString() + ";" + ((System.Collections.DictionaryEntry)item).Key + ";" + ((System.Collections.DictionaryEntry)item).Value + "\n");
+                //}
+                //System.IO.File.WriteAllText(Server.MapPath("~/TextCount.txt"), txt);
 
-            TimeSpan removeTime = TimeSpan.FromMinutes(int.Parse(ConfigurationManager.AppSettings["AnzahlMinutenFuerStayAliveTask"]));
-            Cache cache = (Cache)Application[CACHE_KEY];
-            if (cache[STAYALIVE_CACHE_ENTRY_KEY] != null)
-            {
-                cache.Remove(STAYALIVE_CACHE_ENTRY_KEY);
-            }
-            cache.Add(STAYALIVE_CACHE_ENTRY_KEY, STAYALIVE_CACHE_ENTRY_KEY, null,
-                      DateTime.MaxValue, removeTime, CacheItemPriority.Normal,
-                      new CacheItemRemovedCallback(StayAliveCacheItemRemoved));
+                cache.Add(STAYALIVE_CACHE_ENTRY_KEY, STAYALIVE_CACHE_ENTRY_KEY, null,
+                          DateTime.Now.Add(removeTime), Cache.NoSlidingExpiration, CacheItemPriority.Normal,
+                          new CacheItemRemovedCallback(StayAliveCacheItemRemoved));
 
         }
 
@@ -95,14 +96,21 @@ namespace MinismuriWeb
 
         private void RegisterTaskCacheEntry()
         {
-            Cache cache = (Cache)Application[CACHE_KEY];
-            if (cache[TASK_CACHE_ENTRY_KEY] != null)
+            try
             {
-                cache.Remove(TASK_CACHE_ENTRY_KEY);
+                Cache cache = (Cache)Application[CACHE_KEY];
+                if (cache[TASK_CACHE_ENTRY_KEY] != null)
+                {
+                    cache.Remove(TASK_CACHE_ENTRY_KEY);
+                }
+                cache.Add(TASK_CACHE_ENTRY_KEY, TASK_CACHE_ENTRY_KEY, null,
+                            DateTime.Now.Add(TaskSchedulerContainer.TimeBetweenTaskRun), Cache.NoSlidingExpiration, CacheItemPriority.Normal,
+                          new CacheItemRemovedCallback(TaskCacheItemRemoved));
             }
-            cache.Add(TASK_CACHE_ENTRY_KEY, TASK_CACHE_ENTRY_KEY, null,
-                      DateTime.MaxValue, TaskSchedulerContainer.TimeBetweenTaskRun, CacheItemPriority.Normal,
-                      new CacheItemRemovedCallback(TaskCacheItemRemoved));
+            catch (Exception exc)
+            {
+                throw;
+            }
 
 
         }

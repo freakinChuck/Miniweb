@@ -63,7 +63,7 @@ Leitungsteam Ministranten Muri", DateTime.Now, ev.Name);
 
         protected override void OnError(Exception e, out bool exceptionHandled)
         {
-            exceptionHandled = true;
+            exceptionHandled = false;
         }
     }
 }
