@@ -487,6 +487,7 @@
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\Preview Web.pubxml" />
     <None Include="Properties\PublishProfiles\ProdLocal.pubxml" />
+    <None Include="Properties\PublishProfiles\ProdWeb.pubxml" />
     <None Include="Properties\PublishProfiles\SOMEE.pubxml" />
     <Content Include="Storage\StatisticDataSet.xsc">
       <DependentUpon>StatisticDataSet.xsd</DependentUpon>
@@ -555,7 +556,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Productive|AnyCPU'">
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;PRODUCTIVE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>AnyCPU</PlatformTarget>

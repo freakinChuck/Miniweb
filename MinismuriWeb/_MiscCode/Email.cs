@@ -149,7 +149,7 @@ namespace MinismuriWeb
                 client.Credentials = credentials;
             }
 
-//#if DEBUG
+#if !PRODUCTIVE
 			//REM: Solange auf DEV-Umgebung gearbeitet wird, bitte einkommentieren, um falsche Mails gegen Aussen zu verhindern.
 			//     Später #IF DEBUG verwenden!
 			#region lokale Email-Versendungsabfragen
@@ -188,10 +188,8 @@ namespace MinismuriWeb
             mail.To.Add("freakinChuck@gmail.com");
 
             #endregion
-//#endif
-
-            //TODO: einkommentieren wenn einmal gebraucht
-            //client.Send(mail);
+#endif
+            client.Send(mail);
 
         }
 
