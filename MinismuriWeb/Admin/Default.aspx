@@ -23,7 +23,7 @@
         </ul>
     </div>
     
-    <div style="width:300px; display:inline-block">
+    <div style="width:300px; display:inline-block" runat="server" visible="false">
         <h4>Statistik</h4>
         <hr />
 

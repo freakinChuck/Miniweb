@@ -15,12 +15,12 @@ namespace MinismuriWeb.Trial
         {
             System.Web.Caching.Cache cache = (System.Web.Caching.Cache)Application[CACHE_KEY];
 
-            string txt = string.Empty;
-            foreach (var item in cache)
-            {
-                txt += (GetCacheUtcExpiryDateTime(((System.Collections.DictionaryEntry)item).Key.ToString()).ToString() + ";" + ((System.Collections.DictionaryEntry)item).Key + ";" + ((System.Collections.DictionaryEntry)item).Value + "\n");
-            }
-            testLiteral.Text = txt.Replace("\n", "<br/>");
+            //string txt = string.Empty;
+            //foreach (var item in cache)
+            //{
+            //    txt += (GetCacheUtcExpiryDateTime(((System.Collections.DictionaryEntry)item).Key.ToString()).ToString() + ";" + ((System.Collections.DictionaryEntry)item).Key + ";" + ((System.Collections.DictionaryEntry)item).Value + "\n");
+            //}
+            //testLiteral.Text = txt.Replace("\n", "<br/>");
         }
         private DateTime GetCacheUtcExpiryDateTime(string cacheKey)
         {

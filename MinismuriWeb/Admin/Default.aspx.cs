@@ -16,11 +16,11 @@ namespace MinismuriWeb.Admin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var statistikStorage = Storage.StatisticStorage.LoadStorage();
-            ZugriffeGesammt = statistikStorage.DataSet.HitCount.Count(x => true);
-            ZugriffeMonat = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddMonths(-1));
-            ZugriffeWoche = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddDays(-7));
-            ZugriffeTag = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddDays(-1));
+            //var statistikStorage = Storage.StatisticStorage.LoadStorage();
+            //ZugriffeGesammt = statistikStorage.DataSet.HitCount.Count(x => true);
+            //ZugriffeMonat = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddMonths(-1));
+            //ZugriffeWoche = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddDays(-7));
+            //ZugriffeTag = statistikStorage.DataSet.HitCount.Count(x => x.Datum > Time.Now.AddDays(-1));
 
             var storage = Storage.DataStorage.LoadStorage();
             var user = storage.DataSet.Benutzer.First(b => b.Benutzername.ToLower() == User.Identity.Name.ToLower());

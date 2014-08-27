@@ -189,7 +189,9 @@ namespace MinismuriWeb
 
             #endregion
 //#endif
-            client.Send(mail);
+
+            //TODO: einkommentieren wenn einmal gebraucht
+            //client.Send(mail);
 
         }
 

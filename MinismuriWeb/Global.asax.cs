@@ -25,15 +25,16 @@ namespace MinismuriWeb
             MinismuriWeb.Storage.EventStorage.MapPath = HttpContext.Current.Server.MapPath;
             EmailHelper.Password = System.IO.File.ReadAllText(Server.MapPath("~/Storage/pass.txt"));
 
-                Application[CACHE_KEY] = HttpContext.Current.Cache;
-                RegisterTaskCacheEntry();
-                RegisterStayAliveCacheEntry();
+            //TODO: einkommentieren wenn mal gebraucht
+                //Application[CACHE_KEY] = HttpContext.Current.Cache;
+                //RegisterTaskCacheEntry();
+                //RegisterStayAliveCacheEntry();
 
         }
 
         protected void Session_Start(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(Request["NoStat"]))
+            if (string.IsNullOrEmpty(Request["NoStat"]) && false) //statistik wird ausgeschaltet
             {
                 var threadStart = new ParameterizedThreadStart(RegisterStatistics);
                 var thread = new Thread(threadStart);
