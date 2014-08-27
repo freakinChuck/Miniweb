@@ -175,7 +175,7 @@ Leitungsteam Ministranten Muri
 
             mail.Send();
 
-            Server.Transfer("Success.aspx");
+            Server.Transfer(string.Format("Success.aspx?Name={0}&Anmeldung={1}", row.Name, row.IstAnmeldung));
         }
 
         public bool IsValidMail(string emailaddress)

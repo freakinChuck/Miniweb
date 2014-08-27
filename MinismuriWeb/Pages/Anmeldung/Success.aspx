@@ -5,10 +5,14 @@
 
     <asp:ScriptManager runat="server" />    
 
-    <h1>Anmeldung erfolgreich</h1>
+    <h1><%= Request["Anmeldung"] == bool.TrueString ? "Anmeldung" : "Abmeldung" %> "<%= Request["Name"] %>" erfolgreich</h1>
     <hr />
-    Vielen Dank für Ihre Anmeldung / Abmeldung.
-    Sie werden in K&uuml;rze ein Bestätigungsemail erhalten.
+    Vielen Dank für Ihre <%= Request["Anmeldung"] == bool.TrueString ? "Anmeldung" : "Abmeldung" %>. <br />
+    Sie werden in K&uuml;rze ein Bestätigungsemail erhalten. <br />
+    <i style="font-size:80%">
+        Es bestehen aktuell <b>technische Probleme</b> beim Versenden des Bestätigungsmails an Domains wie <b>hotmail.com</b> oder <b>outlook.com</b>. <br />
+        Falls Sie daher <b>kein Bestätigungsmail</b> erhalten, versichern wir Ihnen, dass Ihre Angaben <b>trotzdem</b> bei uns <b>eingetroffen</b> sind!
+    </i>
     <br />
     <a href="/">Hier zurück zur Startseite.</a>
 
